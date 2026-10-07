@@ -41,4 +41,13 @@ tests/          Unit-Tests
 Debug-Ansicht: `dist/lernfracht.html#/debug/questions?debug=1` – alle Fragen durchklicken.
 Tastatur: `1–9` wählt, `Enter` prüft bzw. geht weiter.
 
-Hosting (Netlify, GitHub Pages) und „neue Content-Datei anlegen“ beschreibt dieses README ab M7.
+## Online
+
+Netlify baut automatisch aus diesem Repo (Einstellungen in `netlify.toml`):
+
+- `main` → https://lernfracht.netlify.app
+- jeder Pull Request → eigene Vorschau-URL (Link steht im PR)
+
+Die Seite ist für Suchmaschinen gesperrt (`noindex`). Wer den Link hat, kann sie aber öffnen.
+
+Ausführlicher zu Hosting und „neue Content-Datei anlegen“: folgt in M7.

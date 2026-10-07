@@ -1,0 +1,23 @@
+# Netlify baut die Single-File-App aus dem Repo: main → https://lernfracht.netlify.app,
+# jeder Pull Request bekommt eine eigene Deploy-Preview-URL.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Es gibt nur dist/lernfracht.html – die Startadresse zeigt direkt darauf.
+[[redirects]]
+  from = "/"
+  to = "/lernfracht.html"
+  status = 200
+
+# Noch keine Veröffentlichung über die eigene Klasse hinaus (SPEC §13): nicht in Suchmaschinen.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"

@@ -1,5 +1,10 @@
 # Changelog
 
+## Hosting · 2026-10-07
+
+- `netlify.toml`: Netlify baut mit `npm run build` und veröffentlicht `dist/`. `/` zeigt auf
+  `lernfracht.html`, `X-Robots-Tag: noindex` hält Suchmaschinen fern, Deploy-Previews je PR.
+
 ## M2 – Fragen-Engine · 2026-10-07
 
 ### Neu
