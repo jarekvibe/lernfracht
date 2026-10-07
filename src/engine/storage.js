@@ -26,14 +26,16 @@ export const LEAGUE_TIERS = 7;
  * @property {'dark'|'light'|'system'} theme
  * @property {boolean} haptics
  * @property {string} createdAt `YYYY-MM-DD`
+ * @property {string|null} onboardedAt `YYYY-MM-DD` once the onboarding was finished or skipped
  *
  * @typedef {Object} AppState
  * @property {number} version
  * @property {Profile} profile
  * @property {Record<string, Object>} cards
  * @property {Record<string, Object>} days
- * @property {{current: number, longest: number, lastActiveDate: string|null, freezes: number}} streak
- * @property {{weekId: string|null, tier: number, seed: number|null, history: Object[]}} league
+ * @property {import('./streak.js').Streak} streak
+ * @property {{weekId: string|null, tier: number, seed: number|null, history: import('./league.js').LeagueResult[],
+ *   pendingResult: import('./league.js').LeagueResult|null}} league
  * @property {Object[]} exams
  * @property {Record<string, string>} selfAssessment
  * @property {Record<string, string>} badges
@@ -64,12 +66,13 @@ export function createDefaultState(now) {
       theme: 'dark',
       haptics: true,
       createdAt: todayLocal(now),
+      onboardedAt: null,
     },
     cards: {},
     days: {},
-    streak: { current: 0, longest: 0, lastActiveDate: null, freezes: 0 },
-    // ASSUMPTION: Seed und Woche setzt erst die Liga-Logik (M4); bis dahin null.
-    league: { weekId: null, tier: 1, seed: null, history: [] },
+    streak: { current: 0, longest: 0, lastActiveDate: null, freezes: 0, frozenDates: [] },
+    // Seed und Woche setzt die Liga beim ersten Start (engine/progress.js → dailyMaintenance).
+    league: { weekId: null, tier: 1, seed: null, history: [], pendingResult: null },
     exams: [],
     selfAssessment: {},
     badges: {},
@@ -119,6 +122,7 @@ export function normalizeState(input, now) {
       theme: THEMES.includes(p.theme) ? p.theme : base.profile.theme,
       haptics: typeof p.haptics === 'boolean' ? p.haptics : base.profile.haptics,
       createdAt: isDateString(p.createdAt) ? p.createdAt : base.profile.createdAt,
+      onboardedAt: isDateString(p.onboardedAt) ? p.onboardedAt : null,
     },
     cards: isObject(src.cards) ? onlyObjectValues(src.cards) : {},
     days: isObject(src.days) ? onlyObjectValues(src.days) : {},
@@ -128,6 +132,7 @@ export function normalizeState(input, now) {
       longest: intIn(s.longest, current, Number.MAX_SAFE_INTEGER) ? s.longest : current,
       lastActiveDate: isDateString(s.lastActiveDate) ? s.lastActiveDate : null,
       freezes: intIn(s.freezes, 0, MAX_FREEZES) ? s.freezes : 0,
+      frozenDates: Array.isArray(s.frozenDates) ? s.frozenDates.filter(isDateString) : [],
     },
     league: {
       ...l,
@@ -135,6 +140,7 @@ export function normalizeState(input, now) {
       tier: intIn(l.tier, 1, LEAGUE_TIERS) ? l.tier : 1,
       seed: typeof l.seed === 'number' && Number.isFinite(l.seed) ? l.seed : null,
       history: Array.isArray(l.history) ? l.history.filter(isObject) : [],
+      pendingResult: isObject(l.pendingResult) ? l.pendingResult : null,
     },
     exams: Array.isArray(src.exams) ? src.exams.filter(isObject) : [],
     selfAssessment: isObject(src.selfAssessment) ? src.selfAssessment : {},

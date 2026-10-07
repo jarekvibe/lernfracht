@@ -52,8 +52,9 @@ test('default state has the documented shape and a local createdAt', () => {
     theme: 'dark',
     haptics: true,
     createdAt: '2026-10-07',
+    onboardedAt: null,
   });
-  assert.deepEqual(s.streak, { current: 0, longest: 0, lastActiveDate: null, freezes: 0 });
+  assert.deepEqual(s.streak, { current: 0, longest: 0, lastActiveDate: null, freezes: 0, frozenDates: [] });
   assert.deepEqual(s.cards, {});
   assert.deepEqual(s.events, []);
 });
@@ -202,7 +203,7 @@ test('normalizeState fills missing fields and repairs wrong types', () => {
   assert.deepEqual(s.profile.examDates, { 'lf14-2': '2026-11-20' });
   assert.equal(s.profile.haptics, true);
   assert.equal(s.profile.createdAt, '2026-10-07');
-  assert.deepEqual(s.streak, { current: 5, longest: 5, lastActiveDate: null, freezes: 0 });
+  assert.deepEqual(s.streak, { current: 5, longest: 5, lastActiveDate: null, freezes: 0, frozenDates: [] });
   assert.equal(s.league.tier, 1);
   assert.equal(s.league.weekId, '2026-W41');
   assert.deepEqual(s.cards, { 'lf14-2/abc-01': { box: 1 } });
@@ -240,5 +241,5 @@ test('unversioned legacy object loads and gets defaults', () => {
   assert.equal(result.notice, null);
   assert.equal(result.state.version, CURRENT_VERSION);
   assert.equal(result.state.profile.nickname, 'alt');
-  assert.deepEqual(result.state.streak, { current: 0, longest: 0, lastActiveDate: null, freezes: 0 });
+  assert.deepEqual(result.state.streak, { current: 0, longest: 0, lastActiveDate: null, freezes: 0, frozenDates: [] });
 });

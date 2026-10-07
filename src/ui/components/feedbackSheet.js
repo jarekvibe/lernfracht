@@ -74,8 +74,9 @@ function solutionNode(solution) {
  * @param {string} options.explanation
  * @param {string} options.nextLabel
  * @param {() => void} options.onNext
+ * @param {number} [options.xp]
  */
-export function feedbackSheet({ question, grade, explanation, nextLabel, onNext }) {
+export function feedbackSheet({ question, grade, explanation, nextLabel, onNext, xp = 0 }) {
   const detail = feedbackDetail(question, grade);
   // ASSUMPTION: Zuordnen, Reihenfolge und Lückentext zeigen die Korrektur direkt an der Antwort,
   // bei `open` steht die Musterlösung schon über dem Sheet – dort keine Wiederholung.
@@ -93,6 +94,7 @@ export function feedbackSheet({ question, grade, explanation, nextLabel, onNext 
         { class: 'sheet-title' },
         h('span', { class: 'sheet-icon', 'aria-hidden': 'true' }, icon(grade.correct ? 'check' : 'close')),
         feedbackTitle(grade),
+        xp > 0 && h('span', { class: 'xp-chip' }, `+${xp} XP`),
       ),
       detail && h('p', { class: 'sheet-detail' }, detail),
       showSolution && h('div', { class: 'solution' }, h('p', { class: 'solution-label' }, 'Richtig ist:'), solutionNode(describeSolution(question))),

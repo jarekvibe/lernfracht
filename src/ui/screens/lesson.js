@@ -4,8 +4,10 @@ import { icon } from '../components/icon.js';
 import { emptyState } from '../components/emptyState.js';
 import { questionView } from '../components/questionView.js';
 import { setLastResult } from '../lastResult.js';
+import { greenTopicCount, leagueSnapshot, todayXp } from '../gamification.js';
 import { advance, answerCurrent, currentItem, isFinished, startLesson, summarize } from '../../engine/lesson.js';
-import { recordAnswer, recordSessionComplete } from '../../engine/progress.js';
+import { finishSession, mistakeCount, recordAnswer } from '../../engine/progress.js';
+import { xpForAnswer } from '../../engine/xp.js';
 import { createRng, hashString } from '../../engine/random.js';
 import { buildMistakeSession, buildSession } from '../../engine/session.js';
 
@@ -50,6 +52,9 @@ export function render(ctx) {
   }
 
   let lesson = startLesson({ gids, mode: scope.mode, now });
+  const mistakesBefore = mistakeCount(store.get());
+  const xpBefore = todayXp(store.get(), now);
+  let xpEarned = 0;
   /** @type {(() => void)[]} */
   let questionCleanups = [];
   const runQuestionCleanups = () => {
@@ -107,7 +112,10 @@ export function render(ctx) {
     }
     const question = /** @type {NonNullable<ReturnType<typeof catalog.getQuestion>>} */ (catalog.getQuestion(item.gid));
     const shownAt = now();
+    /** @param {{correct: boolean, score: number}} grade */
+    const xpFor = (grade) => xpForAnswer(question, grade, { mode: scope.mode, retry: item.retry });
     const view = questionView({
+      xpFor,
       question,
       rng: createRng(hashString(item.gid) ^ shownAt),
       ai: ctx.ai,
@@ -118,7 +126,9 @@ export function render(ctx) {
         lesson = answerCurrent(lesson, grade);
         if (!item.retry) {
           const ms = now() - shownAt;
-          store.update((state) => recordAnswer(state, { gid: item.gid, grade, now, ms, mode: scope.mode }));
+          const xp = xpFor(grade);
+          xpEarned += xp;
+          store.update((state) => recordAnswer(state, { gid: item.gid, grade, now, ms, mode: scope.mode, xp }));
         }
         updateProgress();
       },
@@ -142,8 +152,27 @@ export function render(ctx) {
   function finish() {
     if (!isFinished(lesson)) return;
     const summary = summarize(lesson, now);
-    store.update((state) => recordSessionComplete(state, { now, durationMs: summary.durationMs }));
-    setLastResult({ ...summary, unitId: scope.unitId, topicId: scope.topicId, title: scope.title });
+    const done = finishSession(store.get(), {
+      now,
+      summary,
+      mistakesBefore,
+      greenTopics: (state) => greenTopicCount(catalog, state.cards),
+    });
+    store.update(() => done.state);
+    const after = store.get();
+    const league = leagueSnapshot(after, now);
+    setLastResult({
+      ...summary,
+      unitId: scope.unitId,
+      topicId: scope.topicId,
+      title: scope.title,
+      xp: xpEarned + done.bonusXp,
+      streakBefore: done.streakBefore,
+      streakAfter: after.streak.current,
+      badges: done.badges.map((b) => b.id),
+      league: { rank: league.rank, tierName: league.tierName },
+      goal: { xp: after.profile.dailyGoalXp, before: xpBefore, after: todayXp(after, now) },
+    });
     navigate('/result', { replace: true });
   }
 

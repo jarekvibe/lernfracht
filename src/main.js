@@ -3,6 +3,8 @@
 
 import { createLocalProvider } from './engine/ai/local.js';
 import { createCatalog } from './engine/content.js';
+import { dailyMaintenance } from './engine/progress.js';
+import { hashString } from './engine/random.js';
 import { createStorage } from './engine/storage.js';
 import { createStore } from './store.js';
 import { createApp } from './ui/app.js';
@@ -83,6 +85,7 @@ function boot() {
   window.addEventListener('pagehide', () => storage.flush());
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') storage.flush();
+    else runMaintenance(); // App kommt zurück – vielleicht ist inzwischen ein neuer Tag
   });
 
   // KI-Provider zentral wählen (SPEC §5.1). Phase 2: Server-Proxy mit Fallback auf local.
@@ -91,6 +94,28 @@ function boot() {
   app = createApp({ root, store, catalog, version: VERSION, ai, now, win: window });
   const notice = persistent ? storageNotice(loaded.notice) : storageNotice({ code: 'unavailable' });
   if (notice) app.notify(notice);
+
+  /** Streak-Freeze/-Abriss und Liga-Wochenwechsel; Seed für die Demo-Liga beim ersten Start. */
+  function runMaintenance() {
+    const res = dailyMaintenance(store.get(), { now, seed: hashString(`${now()}:${Math.random()}`) });
+    if (res.state !== store.get()) store.update(() => res.state);
+    if (res.frozen.length > 0) app?.notify({ text: `❄️ Streak-Freeze eingesetzt – dein 🔥 ${res.state.streak.current}er-Streak lebt weiter.` });
+    if (res.broken) app?.notify({ text: 'Dein Streak ist gerissen. Heute fängt ein neuer an.' });
+  }
+  runMaintenance();
+
+  // Erster Start → Onboarding; neue Woche mit Liga-Ergebnis → Liga. Nur, wenn kein anderer Screen verlinkt ist.
+  const hash = window.location.hash;
+  const atStart = hash === '' || hash === '#' || hash === '#/' || hash === '#/home';
+  const state = store.get();
+  const startPath = !state.profile.onboardedAt ? '#/onboarding' : state.league.pendingResult ? '#/league' : null;
+  if (atStart && startPath) {
+    try {
+      window.history.replaceState(null, '', startPath);
+    } catch {
+      window.location.hash = startPath;
+    }
+  }
   app.start();
 }
 

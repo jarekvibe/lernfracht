@@ -4,7 +4,7 @@ Prüfungstrainer für Azubis – Kaufleute für Spedition und Logistikdienstleis
 Die App ist **eine einzige HTML-Datei**, läuft komplett offline, und alle Daten bleiben im Browser
 auf deinem Gerät.
 
-> **Stand:** Phase 1, Meilenstein M3 (Lektionen & Spaced Repetition). Was fertig ist, steht in [`CHANGELOG.md`](CHANGELOG.md),
+> **Stand:** Phase 1, Meilenstein M4 (Gamification). Was fertig ist, steht in [`CHANGELOG.md`](CHANGELOG.md),
 > der Plan in [`SPEC.md`](SPEC.md).
 
 ## Schnellstart
