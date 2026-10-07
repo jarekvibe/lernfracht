@@ -30,6 +30,8 @@ import * as settings from './screens/settings.js';
  * @property {(path: string, options?: {replace?: boolean}) => void} navigate
  * @property {(fn: () => void) => void} onCleanup runs when the screen is left
  * @property {(notice: Notice) => void} notify
+ * @property {import('../engine/ai/provider.js').AiProvider} ai
+ * @property {() => number} now the app clock (epoch ms)
  *
  * @typedef {Object} Notice
  * @property {string} text
@@ -64,9 +66,11 @@ export const ROUTES = [
  * @param {ScreenContext['store']} deps.store
  * @param {ScreenContext['catalog']} deps.catalog
  * @param {string} deps.version
+ * @param {import('../engine/ai/provider.js').AiProvider} deps.ai
+ * @param {() => number} deps.now
  * @param {Window} [deps.win]
  */
-export function createApp({ root, store, catalog, version, win = window }) {
+export function createApp({ root, store, catalog, version, ai, now, win = window }) {
   const notices = h('div', { class: 'notices', 'aria-live': 'polite' });
   const main = h('main', { id: 'main' });
   const nav = bottomNav();
@@ -110,6 +114,8 @@ export function createApp({ root, store, catalog, version, win = window }) {
       navigate: router.navigate,
       onCleanup: (fn) => cleanups.push(fn),
       notify,
+      ai,
+      now,
     };
 
     let view;

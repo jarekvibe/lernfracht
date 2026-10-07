@@ -29,5 +29,8 @@ KI-Calls, keine externen Requests. Die vollständige Spezifikation steht in `SPE
 - DOM nur über `h()` aus `ui/dom.js`: Texte als Textknoten, kein `innerHTML` mit Content.
 - Screens bekommen einen `ScreenContext` (`ui/app.js`) und liefern DOM-Knoten; Aufräumen über
   `ctx.onCleanup()`.
+- Antworten beziehen sich immer auf Content-Indizes, nie auf die gemischte Anzeige-Position
+  (`engine/present.js`). Bewertung nur über `engine/grading.js`.
+- Die UI spricht KI nur über das `AiProvider`-Interface an (`engine/ai/`); gewählt wird in `main.js`.
 - Rechtliches (SPEC §13): Das Berufsschul-Skript (PDF) kommt nicht ins Repo. Keine Daten aus dem
   Ausbildungsbetrieb in Content, Beispielen oder Tests.
