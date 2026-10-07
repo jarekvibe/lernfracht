@@ -78,6 +78,8 @@ test('catalog: topics sorted by order, global ids, lookups', () => {
   assert.equal(question.type, 'truefalse');
   assert.equal(question.unitId, 'test-unit');
   assert.deepEqual(catalog.getTopicQuestions('test-unit', 't1').map((x) => x.id), ['q-single', 'q-multi']);
+  assert.deepEqual(catalog.getPathQuestions('test-unit').map((x) => x.id), ['q-single', 'q-multi', 'q-tf', 'q-cat', 'q-ord', 'q-cloze', 'q-num', 'q-open']);
+  assert.deepEqual(catalog.getPathQuestions('nope'), []);
   assert.equal(catalog.getQuestion('test-unit/nope'), null);
   assert.equal(catalog.getUnit('nope'), null);
   assert.deepEqual(catalog.getTopicQuestions('test-unit', 'nope'), []);

@@ -1,5 +1,41 @@
 # Changelog
 
+## M3 – Lektionen & Spaced Repetition · 2026-10-07
+
+### Neu
+- **Leitner-Boxen** (`engine/scheduler.js`): Richtig bringt die Frage eine Box höher (Intervalle 1 · 3 ·
+  7 · 16 · 35 Tage). Falsch bringt sie zurück in Box 1, sie ist heute fällig und landet in der
+  Fehlerkiste. Ab Box 4 gilt sie als gemeistert.
+- **Session-Builder** (`engine/session.js`) für eine Lektion mit ~10 Fragen, in dieser Reihenfolge:
+  1. bis zu 4 fällige Wiederholungen, die am längsten überfälligen zuerst
+  2. neue Fragen in Pfad-Reihenfolge
+  3. weitere Wiederholungen
+  4. Festigen (niedrigste Box, älteste zuerst)
+
+  Dazu: höchstens 1 Freitext-Frage je Lektion, nicht mehr als 3 gleiche Fragetypen in Folge.
+  Reine Funktion mit injizierter Uhr.
+- **Lektionsablauf:** Fortschrittsbalken, falsch beantwortete Fragen kommen einmal am Ende wieder.
+  Abbrechen fragt nach, die Antworten bis dahin bleiben gespeichert.
+- **Ergebnis-Screen:** „Ladung gesichert.“ bzw. „Perfekte Lektion.“, Trefferquote, Dauer,
+  Fragen zum Nachüben, weiter zur nächsten Lektion oder in die Fehlerkiste. Dazu stapeln sich
+  drei Pakete (CSS-Animation, respektiert `prefers-reduced-motion`).
+- **Fehlerkiste:** Fragen nach Thema gruppiert, mit „noch 2×/1× richtig“. „Fehler üben“ startet eine
+  Session nur daraus. Nach 2 richtigen Antworten in Folge ist eine Frage raus.
+- **Home:** „Weiterlernen“ folgt dem Pfad und zeigt das aktuelle Thema und die fälligen
+  Wiederholungen.
+- **Thema üben:** Tipp auf ein Thema startet eine Lektion nur aus diesem Thema.
+- **Fortschritt:** Jede Erstantwort aktualisiert sofort die Karte und landet im `events`-Log.
+  Abgeschlossene Sessions zählen in `days` (Lektionen, Lernminuten).
+- **Tests:** 110 Unit-Tests. Neu ist eine **14-Tage-Simulation** mit injizierter Uhr über die
+  Zeitumstellung am 25.10.2026. Sie prüft bei jeder Antwort Box-Wechsel und Fälligkeit, dass
+  immer die am längsten überfälligen Wiederholungen drankommen, und Rein und Raus der Fehlerkiste.
+
+### Annahmen (`// ASSUMPTION:` im Code)
+- Für das Verlassen der Fehlerkiste zählen richtige Antworten aus allen Modi.
+- Die Wiederholung am Lektionsende ändert die Karte nicht. Nur der erste Versuch zählt.
+- „Fehler üben“ und „Thema üben“ zählen als Lektion des Tages, eine abgebrochene Lektion nicht.
+- `events` tragen zusätzlich `mode` (path/topic/mistakes). Wiederholungen werden nicht geloggt.
+
 ## Hosting · 2026-10-07
 
 - `netlify.toml`: Netlify baut mit `npm run build` und veröffentlicht `dist/`. `/` zeigt auf

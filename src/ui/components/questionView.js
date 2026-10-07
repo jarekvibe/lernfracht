@@ -31,7 +31,7 @@ const TYPE_HINTS = {
  * @param {import('../app.js').ScreenContext['store']} options.store
  * @param {(fn: () => void) => void} options.onCleanup
  * @param {() => void} options.onNext
- * @param {string} [options.nextLabel]
+ * @param {string|((grade: Grade) => string)} [options.nextLabel]
  * @param {(grade: Grade, answer: unknown) => void} [options.onGraded]
  */
 export function questionView({ question, rng, ai, store, onCleanup, onNext, nextLabel = 'Weiter', onGraded }) {
@@ -102,7 +102,8 @@ export function questionView({ question, rng, ai, store, onCleanup, onNext, next
     state = 'done';
     renderer.reveal(grade);
     actionBar.hidden = true;
-    const sheet = feedbackSheet({ question, grade, explanation, nextLabel, onNext: next });
+    const label = typeof nextLabel === 'function' ? nextLabel(grade) : nextLabel;
+    const sheet = feedbackSheet({ question, grade, explanation, nextLabel: label, onNext: next });
     el.append(sheet.el);
     el.classList.add('has-sheet');
     // Platz schaffen, damit die markierten Antworten über dem Sheet scrollbar bleiben.
@@ -123,6 +124,7 @@ export function questionView({ question, rng, ai, store, onCleanup, onNext, next
   function onKeyDown(event) {
     if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || !el.isConnected) return;
     const target = /** @type {HTMLElement} */ (event.target);
+    if (target.closest?.('dialog')) return;
     const isTextField = target instanceof HTMLTextAreaElement || (target instanceof HTMLInputElement && target.type === 'text');
 
     if (event.key === 'Enter') {
