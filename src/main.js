@@ -11,6 +11,7 @@ import { createApp } from './ui/app.js';
 import { h } from './ui/dom.js';
 import { emptyState } from './ui/components/emptyState.js';
 import { getBrowserBackend, readEmbeddedUnits } from './ui/platform.js';
+import { startReminderLoop } from './ui/reminders.js';
 import { createThemeController } from './ui/theme.js';
 
 /* global __APP_VERSION__ */
@@ -91,7 +92,14 @@ function boot() {
   // KI-Provider zentral wählen (SPEC §5.1). Phase 2: Server-Proxy mit Fallback auf local.
   const ai = createLocalProvider();
 
-  app = createApp({ root, store, catalog, version: VERSION, ai, now, win: window });
+  /** Import und Zurücksetzen: ganzen Zustand tauschen, Tageswartung nachziehen, sofort speichern. */
+  const replaceState = (/** @type {import('./engine/storage.js').AppState} */ next) => {
+    store.update(() => next);
+    runMaintenance();
+    storage.flush();
+  };
+
+  app = createApp({ root, store, catalog, version: VERSION, ai, now, replaceState, win: window });
   const notice = persistent ? storageNotice(loaded.notice) : storageNotice({ code: 'unavailable' });
   if (notice) app.notify(notice);
 
@@ -117,6 +125,7 @@ function boot() {
     }
   }
   app.start();
+  startReminderLoop(store, now);
 }
 
 boot();

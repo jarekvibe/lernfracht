@@ -5,6 +5,7 @@ import { createRouter, isDebugEnabled } from './router.js';
 import { bottomNav } from './components/bottomNav.js';
 import { emptyState } from './components/emptyState.js';
 import { icon } from './components/icon.js';
+import * as about from './screens/about.js';
 import * as cando from './screens/cando.js';
 import * as debug from './screens/debug.js';
 import * as exam from './screens/exam.js';
@@ -33,6 +34,8 @@ import * as settings from './screens/settings.js';
  * @property {(notice: Notice) => void} notify
  * @property {import('../engine/ai/provider.js').AiProvider} ai
  * @property {() => number} now the app clock (epoch ms)
+ * @property {(next: AppState) => void} replaceState swaps the whole state (import/reset), runs the
+ *   daily maintenance and writes immediately
  *
  * @typedef {Object} Notice
  * @property {string} text
@@ -56,6 +59,7 @@ export const ROUTES = [
   { path: '/league', title: 'Liga', render: league.render, tab: 'league' },
   { path: '/profile', title: 'Profil', render: profile.render, tab: 'profile' },
   { path: '/settings', title: 'Einstellungen', render: settings.render, tab: 'profile' },
+  { path: '/about', title: 'Über & Datenschutz', render: about.render, tab: 'profile' },
   { path: '/onboarding', title: 'Willkommen', render: onboarding.render },
   { path: '/lesson', title: 'Lektion', render: lesson.render },
   { path: '/result', title: 'Ergebnis', render: result.render },
@@ -70,9 +74,10 @@ export const ROUTES = [
  * @param {string} deps.version
  * @param {import('../engine/ai/provider.js').AiProvider} deps.ai
  * @param {() => number} deps.now
+ * @param {ScreenContext['replaceState']} deps.replaceState
  * @param {Window} [deps.win]
  */
-export function createApp({ root, store, catalog, version, ai, now, win = window }) {
+export function createApp({ root, store, catalog, version, ai, now, replaceState, win = window }) {
   const notices = h('div', { class: 'notices', 'aria-live': 'polite' });
   const main = h('main', { id: 'main' });
   const nav = bottomNav();
@@ -118,6 +123,7 @@ export function createApp({ root, store, catalog, version, ai, now, win = window
       notify,
       ai,
       now,
+      replaceState,
     };
 
     let view;
