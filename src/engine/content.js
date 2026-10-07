@@ -97,6 +97,9 @@ export function createCatalog(units) {
   /** @type {Map<string, CatalogQuestion[]>} key `${unitId}/${topicId}` */
   const questionsByTopic = new Map();
 
+  /** @type {Map<string, CatalogQuestion[]>} */
+  const pathByUnit = new Map();
+
   const sortedUnits = units.map((unit) => {
     const sorted = { ...unit, topics: [...unit.topics].sort((a, b) => a.order - b.order) };
     unitById.set(sorted.id, sorted);
@@ -106,6 +109,7 @@ export function createCatalog(units) {
       questionByGid.set(entry.gid, entry);
       questionsByTopic.get(`${sorted.id}/${question.topic}`)?.push(entry);
     }
+    pathByUnit.set(sorted.id, sorted.topics.flatMap((t) => questionsByTopic.get(`${sorted.id}/${t.id}`) ?? []));
     return sorted;
   });
 
@@ -117,6 +121,11 @@ export function createCatalog(units) {
     getQuestion: (gid) => questionByGid.get(gid) ?? null,
     /** @param {string} unitId @param {string} topicId */
     getTopicQuestions: (unitId, topicId) => questionsByTopic.get(`${unitId}/${topicId}`) ?? [],
+    /**
+     * All questions of a unit in learning-path order (topic order, then content order).
+     * @param {string} unitId
+     */
+    getPathQuestions: (unitId) => pathByUnit.get(unitId) ?? [],
     get questionCount() {
       return questionByGid.size;
     },
