@@ -1,0 +1,33 @@
+# Prüft jeden Pull Request und jeden Push auf main: Tests, Content-Validator, Build.
+# Das gebaute dist/lernfracht.html hängt als Artefakt am Lauf (zum Herunterladen und Ausprobieren).
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    name: Test · Validate · Build (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run validate
+      - run: npm run build
+      - name: Build-Ergebnis hochladen
+        if: matrix.node == 22
+        uses: actions/upload-artifact@v4
+        with:
+          name: lernfracht-html
+          path: dist/lernfracht.html
+          if-no-files-found: error

@@ -27,6 +27,8 @@
 - **Build:** `dist/lernfracht.html` (≈ 91 KB) enthält JS als IIFE, CSS und Content als
   `<script type="application/json" id="content-…">`. Die Datei funktioniert per `file://`.
   Eine CSP sperrt alle Netzwerk-Requests. Ungültiger Content bricht den Build ab.
+- **CI:** GitHub Actions prüft jeden PR und `main` mit Tests, Validator und Build auf Node 20 und 22.
+  Das gebaute HTML hängt als Artefakt am Lauf.
 - **Tests:** 56 Unit-Tests für Storage, Migrationen, Validator, Katalog, Router, Store, Datum,
   Template-Befüllung und Theme.
 
