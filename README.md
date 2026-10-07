@@ -4,7 +4,7 @@ Prüfungstrainer für Azubis – Kaufleute für Spedition und Logistikdienstleis
 Die App ist **eine einzige HTML-Datei**, läuft komplett offline, und alle Daten bleiben im Browser
 auf deinem Gerät.
 
-> **Stand:** Phase 1, Meilenstein M1 (Fundament). Was fertig ist, steht in [`CHANGELOG.md`](CHANGELOG.md),
+> **Stand:** Phase 1, Meilenstein M2 (Fragen-Engine). Was fertig ist, steht in [`CHANGELOG.md`](CHANGELOG.md),
 > der Plan in [`SPEC.md`](SPEC.md).
 
 ## Schnellstart
@@ -38,6 +38,16 @@ scripts/        Build und Content-Validator
 tests/          Unit-Tests
 ```
 
-Debug-Ansicht: `dist/lernfracht.html#/debug/questions?debug=1`
+Debug-Ansicht: `dist/lernfracht.html#/debug/questions?debug=1` – alle Fragen durchklicken.
+Tastatur: `1–9` wählt, `Enter` prüft bzw. geht weiter.
 
-Hosting (Netlify, GitHub Pages) und „neue Content-Datei anlegen“ beschreibt dieses README ab M7.
+## Online
+
+Netlify baut automatisch aus diesem Repo (Einstellungen in `netlify.toml`):
+
+- `main` → https://lernfracht.netlify.app
+- jeder Pull Request → eigene Vorschau-URL (Link steht im PR)
+
+Die Seite ist für Suchmaschinen gesperrt (`noindex`). Wer den Link hat, kann sie aber öffnen.
+
+Ausführlicher zu Hosting und „neue Content-Datei anlegen“: folgt in M7.

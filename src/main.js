@@ -1,6 +1,7 @@
 // Bootstrap: Inhalte laden, Zustand laden, Store + Persistenz + Theme verdrahten, Router starten.
 // Hier (und nur hier) wird die echte Uhr gewählt; die Engine bekommt sie injiziert.
 
+import { createLocalProvider } from './engine/ai/local.js';
 import { createCatalog } from './engine/content.js';
 import { createStorage } from './engine/storage.js';
 import { createStore } from './store.js';
@@ -84,7 +85,10 @@ function boot() {
     if (document.visibilityState === 'hidden') storage.flush();
   });
 
-  app = createApp({ root, store, catalog, version: VERSION, win: window });
+  // KI-Provider zentral wählen (SPEC §5.1). Phase 2: Server-Proxy mit Fallback auf local.
+  const ai = createLocalProvider();
+
+  app = createApp({ root, store, catalog, version: VERSION, ai, now, win: window });
   const notice = persistent ? storageNotice(loaded.notice) : storageNotice({ code: 'unavailable' });
   if (notice) app.notify(notice);
   app.start();
