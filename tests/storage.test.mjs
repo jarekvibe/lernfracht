@@ -53,6 +53,8 @@ test('default state has the documented shape and a local createdAt', () => {
     haptics: true,
     createdAt: '2026-10-07',
     onboardedAt: null,
+    notify: false,
+    lastReminderDate: null,
   });
   assert.deepEqual(s.streak, { current: 0, longest: 0, lastActiveDate: null, freezes: 0, frozenDates: [] });
   assert.deepEqual(s.cards, {});

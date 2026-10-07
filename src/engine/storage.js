@@ -27,6 +27,8 @@ export const LEAGUE_TIERS = 7;
  * @property {boolean} haptics
  * @property {string} createdAt `YYYY-MM-DD`
  * @property {string|null} onboardedAt `YYYY-MM-DD` once the onboarding was finished or skipped
+ * @property {boolean} notify in-app notification at the reminder time (only while the app is open)
+ * @property {string|null} lastReminderDate day of the last in-app notification
  *
  * @typedef {Object} AppState
  * @property {number} version
@@ -67,6 +69,8 @@ export function createDefaultState(now) {
       haptics: true,
       createdAt: todayLocal(now),
       onboardedAt: null,
+      notify: false,
+      lastReminderDate: null,
     },
     cards: {},
     days: {},
@@ -123,6 +127,8 @@ export function normalizeState(input, now) {
       haptics: typeof p.haptics === 'boolean' ? p.haptics : base.profile.haptics,
       createdAt: isDateString(p.createdAt) ? p.createdAt : base.profile.createdAt,
       onboardedAt: isDateString(p.onboardedAt) ? p.onboardedAt : null,
+      notify: typeof p.notify === 'boolean' ? p.notify : false,
+      lastReminderDate: isDateString(p.lastReminderDate) ? p.lastReminderDate : null,
     },
     cards: isObject(src.cards) ? onlyObjectValues(src.cards) : {},
     days: isObject(src.days) ? onlyObjectValues(src.days) : {},

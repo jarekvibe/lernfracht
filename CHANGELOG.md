@@ -1,5 +1,69 @@
 # Changelog
 
+## M6 – Erinnerungen, Profil & Einstellungen · 2026-10-07
+
+### Neu
+- **Kalender-Erinnerung** (`engine/ics.js`):
+  - täglicher 10-Minuten-Termin „📦 5 Minuten Lernfracht“ zur Erinnerungszeit
+  - `RRULE:FREQ=DAILY`, Alarm zum Terminbeginn (`VALARM`, `TRIGGER:PT0M`)
+  - Link zur App, wenn sie online läuft oder eine App-Adresse eingetragen ist
+  - RFC 5545: CRLF, Escaping, Zeilenfaltung nach 75 Byte (UTF-8-sicher, auch bei Emoji)
+
+  Download per Blob, ohne Netzwerk. Zu finden in den Einstellungen und im letzten Onboarding-Schritt.
+- **Browser-Benachrichtigung:** Schalter in den Einstellungen, fragt die Berechtigung an. Kommt
+  zur Erinnerungszeit, höchstens einmal am Tag, nur wenn das Tagesziel noch offen ist – und nur,
+  solange die App geöffnet ist (so steht es auch dran). Wo der Browser keine Benachrichtigungen
+  kann (iPhone ohne Home-Bildschirm), sagt die App das und verweist auf den Kalender.
+- **Profil & Statistik** (`engine/stats.js`, `ui/components/charts.js`):
+  - Kacheln: Fragen beantwortet, Trefferquote, Lernzeit, längster Streak
+  - Streak-Kalender: 12 Wochen, Montag oben, Intensität nach Tagesziel (½ · 1 · 2×),
+    Freeze-Tage mit eisblauem Ring, heute markiert
+  - XP der letzten 14 Tage als SVG-Säulen mit Ziellinie; heute und der beste Tag beschriftet
+  - Tooltips per Maus, Tastatur und Antippen; Tabelle zum Aufklappen; Zusammenfassung für
+    Screenreader
+  - dazu Mastery je Thema, Klausur-Verlauf und Abzeichen
+- **Einstellungen komplett:** Spitzname, Tagesziel, Klausurtermine, Erinnerungszeit + Kalenderdatei,
+  App-Adresse, Benachrichtigung, Theme, Haptik.
+- **Deine Daten** (`engine/backup.js`):
+  - Export als JSON (`lernfracht-sicherung-JJJJ-MM-TT.json`)
+  - Import mit Prüfung und Vorschau (Fragen, Streak, XP, Klausuren, Abzeichen), erst nach
+    Bestätigung. Klare Fehler bei kaputter, fremder oder zu neuer Datei.
+  - Zurücksetzen mit doppelter Rückfrage, danach Onboarding
+  - Import und Reset speichern sofort und ziehen die Tageswartung nach (Streak, Liga-Seed).
+- **Über & Datenschutz** (`#/about`): Daten bleiben auf dem Gerät, kein Tracking, Hinweis auf
+  Inhalte im Entwurf.
+- **Speicherformat:** `profile.notify` und `profile.lastReminderDate` neu. Fehlen sie, setzt
+  `normalizeState` die Vorgaben, deshalb bleibt die Version bei 1.
+- **Tests:** 165 Unit-Tests. Neu: .ics-Format (CRLF, Struktur, RRULE, VALARM, Escaping, Faltung),
+  Export → Reset → Import ergibt denselben Zustand, Import-Fehler, Heatmap-Raster, XP-Reihe,
+  Gesamtzahlen, Erinnerungs-Logik.
+
+### Annahmen (`// ASSUMPTION:` im Code)
+- Der Kalendertermin hat keine Zeitzone („floating“). Er gilt in der Ortszeit des Geräts, auch
+  nach Zeitumstellung und auf Reisen.
+- Die Termin-UID kommt aus dem Liga-Seed und bleibt pro Gerät gleich. Kalender, die nach UID
+  abgleichen, ersetzen beim erneuten Eintragen den alten Termin; die anderen nicht (steht in der
+  Hilfe).
+- Ohne eingetragene App-Adresse nimmt der Termin die aktuelle Adresse, sofern die App online läuft.
+- Die Benachrichtigung ist ab der Uhrzeit bis Mitternacht fällig. Wer die App erst später öffnet,
+  bekommt sie dann.
+- Die Exportdatei hüllt den Zustand in `{format, exportedAt, state}` ein. Beim Import geht auch ein
+  nackter Zustand.
+- Import ersetzt den Stand komplett, es wird nichts zusammengeführt. Reset löscht auch die
+  Einstellungen.
+- Die Kalender-Stufen richten sich nach dem aktuellen Tagesziel.
+
+### Manuell testen
+1. Einstellungen → „Erinnerung in Kalender eintragen“ → Datei in Google Kalender (Web: Einstellungen
+   → Importieren) und Apple Kalender (iPad: Datei antippen) importieren. Prüfen: täglich, 10 Min.,
+   Alarm, richtige Uhrzeit, Link zur App.
+2. Benachrichtigung einschalten, Uhrzeit auf jetzt stellen, App offen lassen → nach spätestens
+   30 s kommt eine Benachrichtigung (nur, wenn das Tagesziel offen ist).
+3. Profil: Kalender und Säulen ansehen, antippen → Tooltip; „Als Tabelle“ aufklappen.
+4. Sicherung exportieren → Alles zurücksetzen (zweimal bestätigen) → Onboarding überspringen →
+   Sicherung importieren → Vorschau prüfen → Importieren → alles wieder da.
+5. Kaputte oder fremde JSON-Datei importieren → verständliche Fehlermeldung, nichts geändert.
+
 ## M5 – Klausur-Simulation & Kann-Liste · 2026-10-07
 
 ### Neu

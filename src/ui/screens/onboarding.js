@@ -1,5 +1,6 @@
 import { h } from '../dom.js';
 import { uid } from '../uid.js';
+import { downloadReminderIcs } from '../reminders.js';
 import { todayLocal } from '../../engine/dates.js';
 import { DAILY_GOALS } from '../../engine/xp.js';
 
@@ -7,10 +8,9 @@ const NICKNAME_MAX = 24;
 
 /**
  * Onboarding (SPEC §4.1): Nickname · Tagesziel · Klausurdatum · Erinnerungszeit. Jederzeit überspringbar.
- * ASSUMPTION: Der Kalender-Export (.ics) kommt mit M6 in die Einstellungen; hier wird nur die Uhrzeit gewählt.
  * @param {import('../app.js').ScreenContext} ctx
  */
-export function render({ store, catalog, navigate, now }) {
+export function render({ store, catalog, navigate, now, version }) {
   const profile = store.get().profile;
   const today = todayLocal(now);
   const draft = {
@@ -91,12 +91,22 @@ export function render({ store, catalog, navigate, now }) {
         input.addEventListener('change', () => {
           if (/^\d{2}:\d{2}$/.test(input.value)) draft.reminderTime = input.value;
         });
+        const state = store.get();
         return h(
           'div',
           { class: 'field' },
           h('label', { for: id, class: 'field-label' }, 'Erinnerung um'),
           input,
-          h('p', { class: 'field-help' }, 'Als Termin in deinen Kalender kommt sie später über die Einstellungen.'),
+          h(
+            'button',
+            {
+              type: 'button',
+              class: 'btn btn-secondary mt-12',
+              onClick: () => downloadReminderIcs({ ...state, profile: { ...state.profile, reminderTime: draft.reminderTime } }, now, version),
+            },
+            'In Kalender eintragen',
+          ),
+          h('p', { class: 'field-help' }, 'Lädt einen täglichen Termin mit Alarm für deinen Kalender. Geht auch später in den Einstellungen.'),
         );
       },
     },
