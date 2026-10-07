@@ -50,7 +50,8 @@ export function render({ store, now }) {
           'li',
           { class: `league-row${zone ? ` zone-${zone}` : ''}${row.isUser ? ' is-user' : ''}`, 'aria-current': row.isUser ? 'true' : null },
           h('span', { class: 'league-rank' }, String(row.rank)),
-          h('span', { class: 'league-name' }, row.name, row.isUser && h('span', { class: 'you' }, ' (du)')),
+          // Ohne Spitznamen heißt die eigene Zeile schon „Du“ – dann kein „(du)“ dahinter.
+          h('span', { class: 'league-name' }, row.name, row.isUser && row.name !== 'Du' && h('span', { class: 'you' }, ' (du)')),
           h('span', { class: 'league-xp' }, `${row.xp} XP`),
           zone && h('span', { class: 'visually-hidden' }, zone === 'up' ? ' – Aufstiegszone' : ' – Abstiegszone'),
         );

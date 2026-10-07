@@ -21,10 +21,12 @@ async function buildOnce() {
     const bytes = Buffer.byteLength(html, 'utf8');
     const kb = (bytes / 1024).toFixed(1).replace('.', ',');
     const unitInfo = units.map((u) => `${u.id} (${u.questions} Fragen)`).join(', ');
-    console.log(`✔ dist/lernfracht.html – ${kb} KB · ${unitInfo} · ${Date.now() - started} ms`);
     if (bytes > SIZE_BUDGET_BYTES) {
-      console.warn(`⚠ Größer als das Budget von ${SIZE_BUDGET_BYTES / 1024} KB`);
+      // Budget aus SPEC §9: die Datei muss auch über schwaches Netz schnell auf dem Handy sein.
+      console.error(`✖ dist/lernfracht.html – ${kb} KB, erlaubt sind ${SIZE_BUDGET_BYTES / 1024} KB. Bilder oder große Inhalte verkleinern.`);
+      return false;
     }
+    console.log(`✔ dist/lernfracht.html – ${kb} KB von ${SIZE_BUDGET_BYTES / 1024} KB · ${unitInfo} · ${Date.now() - started} ms`);
     return true;
   } catch (error) {
     console.error(`✖ Build fehlgeschlagen\n${error instanceof Error ? error.message : error}`);

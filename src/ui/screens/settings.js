@@ -145,7 +145,7 @@ export function render(ctx) {
    */
   function dataSection(c) {
     const fileId = uid('import');
-    const file = h('input', { id: fileId, type: 'file', accept: '.json,application/json', class: 'visually-hidden' });
+    const file = h('input', { id: fileId, type: 'file', accept: '.json,application/json', class: 'visually-hidden', tabindex: '-1', 'aria-hidden': 'true' });
     const importArea = h('div', { class: 'import-area', 'aria-live': 'polite' });
 
     file.addEventListener('change', async () => {
@@ -218,7 +218,7 @@ export function render(ctx) {
         },
         'Sicherung exportieren',
       ),
-      h('label', { for: fileId, class: 'btn btn-secondary mt-8', role: 'button', tabindex: '0', onKeydown: (/** @type {KeyboardEvent} */ e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); file.click(); } } }, 'Sicherung importieren'),
+      h('button', { type: 'button', class: 'btn btn-secondary mt-8', onClick: () => file.click() }, 'Sicherung importieren'),
       file,
       importArea,
       h('button', { type: 'button', class: 'btn btn-danger mt-12', onClick: () => reset1.showModal() }, 'Alles zurücksetzen'),

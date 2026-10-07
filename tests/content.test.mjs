@@ -201,3 +201,8 @@ test('warnings: unlinked questions and unknown fields do not fail validation', (
   assert.ok(warnings.some((w) => /nicht in der Kann-Liste verlinkt: .*q-cat/.test(w)), warnings.join('\n'));
   assert.ok(warnings.some((w) => /unbekanntes Feld „explaination“/.test(w)), warnings.join('\n'));
 });
+
+test('docs/content-vorlage.json (README template) passes the validator without warnings', () => {
+  const template = JSON.parse(readFileSync(new URL('../docs/content-vorlage.json', import.meta.url), 'utf8'));
+  assert.deepEqual(validateUnit(template), { errors: [], warnings: [] });
+});

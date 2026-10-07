@@ -26,7 +26,7 @@ export function render({ store, catalog, now }) {
       title: 'Profil',
       action: h('a', { class: 'icon-btn', href: '#/settings', 'aria-label': 'Einstellungen' }, icon('settings')),
     }),
-    h('p', { class: 'profile-name' }, name || 'Ohne Spitznamen', !name && h('a', { class: 'text-link', href: '#/settings' }, ' · festlegen')),
+    h('p', { class: 'profile-name' }, name || 'Ohne Spitznamen', !name && ' · ', !name && h('a', { class: 'text-link', href: '#/settings' }, 'festlegen')),
     h(
       'ul',
       { class: 'stat-tiles' },
@@ -51,7 +51,7 @@ export function render({ store, catalog, now }) {
     h(
       'section',
       { class: 'card profile-block' },
-      h('h2', null, 'Mastery je Thema'),
+      h('h2', null, 'Was schon sitzt'),
       catalog.units.map((unit) =>
         h(
           'ul',
