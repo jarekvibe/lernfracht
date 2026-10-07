@@ -1,5 +1,62 @@
 # Changelog
 
+## M4 – Gamification · 2026-10-07
+
+### Neu
+- **XP** (`engine/xp.js`):
+  - richtig beim ersten Versuch 10 (Schwierigkeit 3: 15)
+  - Teilpunkte bei Zuordnen, Lückentext, Reihenfolge und Multiple Choice anteilig
+  - Freitext: Rubrik-Anteil × 20
+  - Fehlerkiste: 5
+  - Lektion geschafft +10, perfekt +10 extra
+  - Wiederholung am Ende: 0
+
+  XP stehen im Feedback-Sheet („+10 XP“) und im Ergebnis („Ladung gesichert. +125 XP“).
+- **Tagesziel:** Chill 30, Solide 60, Ehrgeizig 100, Prüfungsmodus 150. Fortschrittsring auf Home,
+  kleine Animation, sobald es geschafft ist.
+- **Streak mit Freeze** (`engine/streak.js`):
+  - Ein Tag zählt ab der ersten abgeschlossenen Session.
+  - Ein verpasster Tag verbraucht einen Freeze, ohne Freeze reißt der Streak.
+  - +1 Freeze je 7 Tage, höchstens 2.
+
+  Beim Öffnen wird nachgerechnet, mit Hinweis („Streak-Freeze eingesetzt“ / „Streak ist gerissen“).
+- **Demo-Liga** (`engine/league.js`):
+  - Woche Mo–So (`2026-W41`), 7 Stufen von Palette bis Mega-Carrier.
+  - 19 simulierte Gegner mit Logistik-Spitznamen, deterministisch aus Woche, Stufe und Nutzer-Seed,
+    auch inaktive.
+  - Top 5 steigen auf, die letzten 5 ab.
+  - Beim ersten Öffnen einer neuen Woche erscheint das Ergebnis.
+  - Der Hinweis „Demo-Liga: Gegner sind simuliert …“ steht immer sichtbar oben.
+  - Abgestimmt per Test: Bei ~100 XP an 5 Tagen steigt man in Stufe 1–3 praktisch immer auf, in
+    Stufe 4 meist; ab Stufe 5 wird es knapp.
+- **Mastery & Ampel** je Thema (`engine/mastery.js`): Anteil Fragen in Box ≥ 4. Rot < 40 %,
+  gelb 40–79 %, grün ≥ 80 % („Klausurbereit“). Ring und Ampel im Lernpfad.
+- **Klausur-Countdown:** „Noch 23 Tage bis LF14.2“ plus empfohlenes Tagespensum
+  (ungesehene + schwache Fragen / Tage, aufgerundet auf Lektionen).
+- **Badges** (`engine/badges.js`, datengetrieben): alle 11 aus SPEC §4.8. Neue erscheinen im
+  Ergebnis, alle im Profil.
+- **Home-Dashboard:** Streak, XP-Ring, Liga-Platz, Streak-Microcopy, Countdown.
+- **Onboarding** (4 Schritte, überspringbar): Spitzname, Tagesziel, Klausurdatum, Erinnerungszeit.
+  Erscheint beim ersten Start.
+- **Einstellungen:** Spitzname, Tagesziel und Klausurtermine sind jetzt änderbar (Tagesziel laut
+  §4.8 „jederzeit änderbar“, Termin für den Countdown).
+- **Tests:** 138 Unit-Tests. Neu: Streak (Mitternacht, beide Zeitumstellungen, verpasste Tage mit und
+  ohne Freeze, Idempotenz), Liga (deterministisch, Auf- und Abstieg, Wochenwechsel, Abstimmung),
+  XP, Badges, Mastery und Countdown.
+
+### Annahmen (`// ASSUMPTION:` im Code)
+- Fehlerkiste: 5 XP nur für ganz richtige Antworten, keine Teil-XP.
+- Der Lektions-Bonus (+10/+10) gilt auch für „Thema üben“ und „Fehler üben“.
+- Freezes werden Tag für Tag verbraucht. Reichen sie nicht, reißt der Streak trotzdem.
+- Liga:
+  - Gewertet wird nur die zuletzt gespielte Woche und nur, wenn darin XP gesammelt wurden. Keine
+    Abstiege durch Abwesenheit.
+  - Bei Gleichstand steht der Nutzer vorn.
+- „Thema gemeistert“ heißt Ampel grün (≥ 80 %), nicht 100 %.
+- Der Kalender-Export (.ics) für die Erinnerung kommt mit M6. Im Onboarding wird nur die Uhrzeit
+  gewählt.
+- Das Profil zeigt schon die Abzeichen. Heatmap und XP-Verlauf folgen mit M6.
+
 ## M3 – Lektionen & Spaced Repetition · 2026-10-07
 
 ### Neu

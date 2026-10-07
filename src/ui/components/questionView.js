@@ -33,8 +33,9 @@ const TYPE_HINTS = {
  * @param {() => void} options.onNext
  * @param {string|((grade: Grade) => string)} [options.nextLabel]
  * @param {(grade: Grade, answer: unknown) => void} [options.onGraded]
+ * @param {(grade: Grade) => number} [options.xpFor] XP shown in the feedback sheet
  */
-export function questionView({ question, rng, ai, store, onCleanup, onNext, nextLabel = 'Weiter', onGraded }) {
+export function questionView({ question, rng, ai, store, onCleanup, onNext, nextLabel = 'Weiter', onGraded, xpFor }) {
   const promptId = uid('prompt');
   /** @type {'answering'|'checking'|'done'} */
   let state = 'answering';
@@ -103,7 +104,7 @@ export function questionView({ question, rng, ai, store, onCleanup, onNext, next
     renderer.reveal(grade);
     actionBar.hidden = true;
     const label = typeof nextLabel === 'function' ? nextLabel(grade) : nextLabel;
-    const sheet = feedbackSheet({ question, grade, explanation, nextLabel: label, onNext: next });
+    const sheet = feedbackSheet({ question, grade, explanation, nextLabel: label, onNext: next, xp: xpFor?.(grade) ?? 0 });
     el.append(sheet.el);
     el.classList.add('has-sheet');
     // Platz schaffen, damit die markierten Antworten über dem Sheet scrollbar bleiben.

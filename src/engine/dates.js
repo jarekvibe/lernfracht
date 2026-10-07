@@ -69,3 +69,36 @@ export function addDays(dateString, days) {
 export function diffDays(a, b) {
   return Math.round((utcDay(b) - utcDay(a)) / 86400000);
 }
+
+/**
+ * ISO-8601 week of a calendar day, e.g. `2026-W41` (weeks start on Monday).
+ * @param {string} dateString `YYYY-MM-DD`
+ * @returns {string}
+ */
+export function isoWeekId(dateString) {
+  const day = utcDay(dateString);
+  const weekday = (new Date(day).getUTCDay() + 6) % 7; // Mo = 0 … So = 6
+  const thursday = day + (3 - weekday) * 86400000;
+  const year = new Date(thursday).getUTCFullYear();
+  const week = Math.floor((thursday - mondayOfWeekOne(year)) / (7 * 86400000)) + 1;
+  return `${year}-W${String(week).padStart(2, '0')}`;
+}
+
+/**
+ * The seven calendar days (Monday … Sunday) of an ISO week.
+ * @param {string} weekId e.g. `2026-W41`
+ * @returns {string[]}
+ */
+export function weekDates(weekId) {
+  const [year, week] = weekId.split('-W').map(Number);
+  const monday = mondayOfWeekOne(year) + (week - 1) * 7 * 86400000;
+  const first = new Date(monday);
+  const start = `${first.getUTCFullYear()}-${String(first.getUTCMonth() + 1).padStart(2, '0')}-${String(first.getUTCDate()).padStart(2, '0')}`;
+  return Array.from({ length: 7 }, (_, i) => addDays(start, i));
+}
+
+/** @param {number} year */
+function mondayOfWeekOne(year) {
+  const jan4 = Date.UTC(year, 0, 4);
+  return jan4 - ((new Date(jan4).getUTCDay() + 6) % 7) * 86400000;
+}

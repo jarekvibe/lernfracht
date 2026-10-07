@@ -2,12 +2,13 @@ import { h } from '../dom.js';
 import { screenHeader } from '../components/screenHeader.js';
 import { emptyState } from '../components/emptyState.js';
 import { getLastResult } from '../lastResult.js';
+import { badgeById } from '../../engine/badges.js';
 
 /** @param {string} unitId @param {string|null} topicId */
 const topicHref = (unitId, topicId) => `#/lesson?mode=topic&unit=${encodeURIComponent(unitId)}&topic=${encodeURIComponent(topicId ?? '')}`;
 
 /**
- * Lektions-Ergebnis. XP, Streak und Liga kommen mit M4 dazu.
+ * Lektions-Ergebnis: XP, Streak, Liga-Platz, neue Abzeichen, Tagesziel.
  * @param {import('../app.js').ScreenContext} ctx
  */
 export function render({ catalog, store }) {
@@ -27,6 +28,9 @@ export function render({ catalog, store }) {
   const cards = store.get().cards;
   const inMistakeBox = Object.values(cards).filter((c) => /** @type {{inMistakeBox?: boolean}} */ (c).inMistakeBox).length;
   const minutes = Math.max(1, Math.round(result.durationMs / 60000));
+  const streakUp = result.streakAfter > result.streakBefore;
+  const goalReached = result.goal.before < result.goal.xp && result.goal.after >= result.goal.xp;
+  const badges = result.badges.map(badgeById).filter((b) => b !== null);
 
   /** @type {{href: string, label: string}} */
   let primary;
@@ -39,8 +43,15 @@ export function render({ catalog, store }) {
       'section',
       { class: 'result' },
       h('div', { class: 'parcels', 'aria-hidden': 'true' }, h('span', { class: 'parcel p1' }), h('span', { class: 'parcel p2' }), h('span', { class: 'parcel p3' })),
-      h('h1', { tabindex: '-1' }, result.perfect ? 'Perfekte Lektion.' : 'Ladung gesichert.'),
+      h('h1', { tabindex: '-1' }, result.perfect ? 'Perfekte Lektion.' : 'Ladung gesichert.', h('span', { class: 'result-xp' }, ` +${result.xp} XP`)),
       h('p', { class: 'result-lead' }, `${result.correctFirstTry} von ${result.total} beim ersten Versuch richtig`),
+      h(
+        'ul',
+        { class: 'result-chips' },
+        h('li', { class: streakUp ? 'is-hot' : '' }, `🔥 ${result.streakAfter} ${result.streakAfter === 1 ? 'Tag' : 'Tage'}${streakUp ? ' · +1' : ''}`),
+        h('li', null, `${result.league.rank}. Platz · ${result.league.tierName}`),
+        goalReached && h('li', { class: 'is-goal' }, '✓ Tagesziel geschafft'),
+      ),
       h(
         'ul',
         { class: 'stat-list result-stats' },
@@ -48,16 +59,23 @@ export function render({ catalog, store }) {
         h('li', null, h('span', null, 'In der Fehlerkiste'), h('span', null, `${inMistakeBox} ${inMistakeBox === 1 ? 'Frage' : 'Fragen'}`)),
       ),
     ),
+    badges.length > 0 &&
+      h(
+        'section',
+        { class: 'card new-badges', role: 'status' },
+        h('h2', null, badges.length === 1 ? 'Neues Abzeichen' : 'Neue Abzeichen'),
+        h(
+          'ul',
+          null,
+          badges.map((b) => h('li', null, h('span', { class: 'badge-icon', 'aria-hidden': 'true' }, b.icon), h('span', null, h('strong', null, b.title), h('span', { class: 'muted small' }, ` – ${b.description}`)))),
+        ),
+      ),
     result.wrong.length > 0 &&
       h(
         'section',
         { class: 'card wrong-list' },
         h('h2', null, 'Das übst du nochmal'),
-        h(
-          'ul',
-          null,
-          result.wrong.map((gid) => h('li', null, catalog.getQuestion(gid)?.prompt ?? gid)),
-        ),
+        h('ul', null, result.wrong.map((gid) => h('li', null, catalog.getQuestion(gid)?.prompt ?? gid))),
       ),
     h(
       'div',
