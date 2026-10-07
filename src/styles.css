@@ -805,6 +805,106 @@ span.gap { cursor: default; border-style: solid; font-weight: 650; }
 .badge-desc { color: var(--muted); font-size: 12px; }
 .profile-later { margin-top: 16px; text-align: center; }
 
+/* --- Klausur-Simulation & Kann-Liste (M5) ----------------------------------------- */
+
+.exam-card { display: grid; gap: 10px; }
+.exam-card h2 { font-size: 20px; font-weight: 750; margin: 0; }
+.exam-facts { color: var(--muted); font-size: 14px; font-weight: 600; }
+.exam-rules { margin: 0; padding-left: 20px; display: grid; gap: 2px; font-size: 15px; }
+.exam-history { margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--border); display: grid; gap: 6px; }
+.exam-history h3 { font-size: 15px; font-weight: 700; }
+.history-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.history-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; padding: 8px 12px; border-radius: 12px; background: var(--surface-2); }
+.history-list li > :last-child { grid-column: 1 / -1; font-size: 13px; }
+.history-grade { font-weight: 750; }
+
+.exam-top { display: flex; align-items: center; gap: 12px; margin: -4px 0 12px; }
+.exam-top .icon-btn { margin-left: -10px; }
+.timer { flex: 1; text-align: center; font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.timer.is-low { color: var(--error); animation: timer-pulse 1s ease-in-out 3; }
+@keyframes timer-pulse { 50% { opacity: 0.4; } }
+.exam-submit { color: var(--accent); }
+.exam-strip { display: flex; gap: 6px; overflow-x: auto; margin: 0 -16px 16px; padding: 2px 16px 6px; scrollbar-width: none; }
+.exam-strip::-webkit-scrollbar { display: none; }
+.strip-item {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.strip-item.is-answered { background: var(--surface-2); border-color: var(--surface-2); color: var(--muted); }
+.strip-item.is-current { border-color: var(--accent); color: var(--text); box-shadow: 0 0 0 2px var(--accent-soft); }
+.strip-item.is-flagged::after { content: ''; position: absolute; top: 3px; right: 3px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.exam-qno { color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.exam-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 16px 0 calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(to bottom, transparent, var(--bg) 30%);
+}
+.exam-nav .btn { padding: 0 10px; font-size: 15px; }
+.exam-flag[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
+.exam-h1 { font-size: 24px; font-weight: 750; margin-bottom: 4px; }
+.exam-run > .prompt { margin: 16px 0 8px; }
+.own-answer { white-space: pre-wrap; }
+.exam-run .card + .keyword-hint, .exam-run .keyword-hint + .model-answer, .exam-run .model-answer + .rubric { margin-top: 12px; }
+
+.exam-grade { display: grid; justify-items: center; gap: 6px; padding: 16px 0 8px; text-align: center; }
+.exam-grade-eyebrow { color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.exam-grade h1 { display: grid; gap: 2px; }
+.grade-big { font-size: 48px; font-weight: 850; letter-spacing: -0.02em; line-height: 1; }
+.grade-label { font-size: 18px; font-weight: 650; color: var(--muted); }
+
+.topic-scores { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; }
+.topic-scores li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; font-size: 14px; }
+.topic-score-points { font-weight: 700; font-variant-numeric: tabular-nums; }
+.score-bar { grid-column: 1 / -1; display: block; height: 8px; overflow: hidden; border-radius: 999px; background: var(--surface-2); }
+.score-fill { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--accent); }
+.score-bar.is-good .score-fill { background: var(--success); }
+.score-bar.is-ok .score-fill { background: var(--warning); }
+.score-bar.is-bad .score-fill { background: var(--error); }
+
+.mistake-details { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.mistake-details details { border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); }
+.mistake-details summary { display: grid; gap: 2px; padding: 10px 12px; cursor: pointer; list-style: none; }
+.mistake-details summary::-webkit-details-marker { display: none; }
+.mistake-details summary::after { content: 'Erklärung ansehen'; color: var(--accent); font-size: 13px; font-weight: 650; }
+.mistake-details details[open] summary::after { content: 'Zuklappen'; }
+.mistake-body { display: grid; gap: 8px; padding: 0 12px 12px; font-size: 15px; }
+
+.cando-intro { margin: 4px 0 8px; font-size: 15px; }
+.cando-topic { margin-top: 24px; display: grid; gap: 10px; }
+.cando-topic h2 { font-size: 17px; font-weight: 700; }
+.card.cando { display: grid; gap: 10px; margin: 0; }
+.cando-text { font-weight: 650; }
+.cando-mastery { display: grid; gap: 4px; }
+.cando-mastery .score-bar { grid-column: auto; }
+.cando-mastery-text { color: var(--muted); font-size: 13px; }
+.self-levels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.self-level { position: relative; display: block; cursor: pointer; }
+.self-level input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.self-level span { display: grid; place-items: center; min-height: 44px; padding: 4px 8px; border: 1.5px solid var(--border-strong); border-radius: 10px; font-size: 14px; font-weight: 600; text-align: center; }
+.self-level input:checked + span { border-color: var(--accent); background: var(--accent-soft); }
+.self-level input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cando-gap:empty { display: none; }
+.cando-gap { padding: 8px 12px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+.cando-gap.is-over { background: var(--error-soft); }
+.cando-gap.is-under { background: var(--success-soft); }
+
 .noscript { max-width: 480px; margin: 40px auto; padding: 0 16px; font: 16px/1.45 system-ui, sans-serif; }
 
 @media (prefers-reduced-motion: reduce) {

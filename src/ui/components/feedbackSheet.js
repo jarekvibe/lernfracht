@@ -45,7 +45,7 @@ export function feedbackDetail(q, grade) {
 }
 
 /** @param {import('../../engine/solution.js').Solution} solution */
-function solutionNode(solution) {
+export function solutionNode(solution) {
   switch (solution.kind) {
     case 'text':
       return h('p', null, solution.text);

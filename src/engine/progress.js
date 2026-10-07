@@ -3,6 +3,7 @@
 import { todayLocal } from './dates.js';
 import { newBadges } from './badges.js';
 import { syncLeague, weekPosition } from './league.js';
+import { examXp } from './exam.js';
 import { applyAnswer } from './scheduler.js';
 import { MAX_EVENTS } from './storage.js';
 import { recordStreakDay, settleStreak } from './streak.js';
@@ -92,24 +93,84 @@ export function finishSession(state, { now, summary, mistakesBefore, greenTopics
   const streakBefore = settleStreak(state.streak, todayLocal(now)).streak.current;
   let next = recordSessionComplete(state, { now, durationMs: summary.durationMs, xp: bonusXp });
   next = joinLeagueWeek(next, now);
-  const exams = /** @type {{grade?: number}[]} */ (next.exams);
-  const grades = exams.map((e) => e.grade).filter((g) => typeof g === 'number');
-  const earned = newBadges(next.badges, {
-    sessions: sessionsTotal(next),
-    streak: next.streak.current,
-    greenTopics: greenTopics(next),
+  const awarded = awardBadges(next, { now, session: summary, mistakesBefore, greenTopics });
+  return { state: awarded.state, bonusXp, badges: awarded.badges, streakBefore };
+}
+
+/**
+ * Checks all badges against the new state and stores the new ones.
+ * @param {AppState} state
+ * @param {{now: () => number, session: {mode: string, total: number, perfect: boolean}|null, mistakesBefore: number,
+ *   greenTopics: (state: AppState) => number}} context
+ * @returns {{state: AppState, badges: import('./badges.js').Badge[]}}
+ */
+function awardBadges(state, { now, session, mistakesBefore, greenTopics }) {
+  const exams = /** @type {{grade?: number}[]} */ (state.exams);
+  const grades = /** @type {number[]} */ (exams.map((e) => e.grade).filter((g) => typeof g === 'number'));
+  const earned = newBadges(state.badges, {
+    sessions: sessionsTotal(state),
+    streak: state.streak.current,
+    greenTopics: greenTopics(state),
     exams: exams.length,
-    bestGrade: grades.length ? Math.min(.../** @type {number[]} */ (grades)) : null,
+    bestGrade: grades.length ? Math.min(...grades) : null,
     mistakesBefore,
-    mistakesAfter: mistakeCount(next),
-    session: summary,
+    mistakesAfter: mistakeCount(state),
+    session,
     hour: new Date(now()).getHours(),
   });
-  if (earned.length > 0) {
-    const today = todayLocal(now);
-    next = { ...next, badges: { ...next.badges, ...Object.fromEntries(earned.map((b) => [b.id, today])) } };
+  if (earned.length === 0) return { state, badges: earned };
+  const today = todayLocal(now);
+  return { state: { ...state, badges: { ...state.badges, ...Object.fromEntries(earned.map((b) => [b.id, today])) } }, badges: earned };
+}
+
+/**
+ * Books a finished exam simulation (SPEC §4.6):
+ * every answer updates its Leitner card (wrong or unanswered → box 1 + mistake box), the exam goes
+ * into the history, XP = round(percent / 2) + 10 from 50 %, the day counts for the streak.
+ * ASSUMPTION: Richtige Klausur-Antworten bringen die Karte wie im Lernmodus eine Box höher;
+ * unbeantwortete zählen als falsch. Die Klausur zählt für den Streak, aber nicht als Lektion.
+ * @param {AppState} state
+ * @param {Object} input
+ * @param {() => number} input.now
+ * @param {string} input.unitId
+ * @param {import('./exam.js').ExamResult} input.result
+ * @param {number} input.durationSec
+ * @param {(state: AppState) => number} input.greenTopics
+ * @returns {{state: AppState, xp: number, badges: import('./badges.js').Badge[], streakBefore: number}}
+ */
+export function finishExam(state, { now, unitId, result, durationSec, greenTopics }) {
+  const t = now();
+  const today = todayLocal(now);
+  const streakBefore = settleStreak(state.streak, today).streak.current;
+  const mistakesBefore = mistakeCount(state);
+  /** @type {Record<string, any>} */
+  const cards = { ...state.cards };
+  const events = [...state.events];
+  for (const item of result.items) {
+    cards[item.gid] = applyAnswer(cards[item.gid], item.grade.correct, today);
+    events.push({ t, qid: item.gid, correct: item.grade.correct, points: item.grade.points, ms: 0, mode: 'exam' });
   }
-  return { state: next, bonusXp, badges: earned, streakBefore };
+  const xp = examXp(result.percent);
+  const exam = {
+    unitId,
+    date: today,
+    points: result.points,
+    maxPoints: result.maxPoints,
+    percent: Math.round(result.percent * 10) / 10,
+    grade: result.grade.grade,
+    durationSec: Math.max(0, Math.round(durationSec)),
+  };
+  let next = {
+    ...state,
+    cards,
+    events: events.slice(-MAX_EVENTS),
+    exams: [...state.exams, exam],
+    days: addToDay(state, today, { xp, minutes: Math.max(1, Math.round(durationSec / 60)) }),
+    streak: recordStreakDay(state.streak, today),
+  };
+  next = joinLeagueWeek(next, now);
+  const awarded = awardBadges(next, { now, session: null, mistakesBefore, greenTopics });
+  return { state: awarded.state, xp, badges: awarded.badges, streakBefore };
 }
 
 /**

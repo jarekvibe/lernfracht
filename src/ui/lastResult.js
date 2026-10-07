@@ -2,7 +2,7 @@
 
 /**
  * @typedef {import('../engine/lesson.js').LessonSummary & {
- *   unitId: string|null, topicId: string|null, title: string,
+ *   unitId: string|null, topicId: string|null, canDoId: string|null, title: string,
  *   xp: number, streakBefore: number, streakAfter: number, badges: string[],
  *   league: {rank: number, tierName: string},
  *   goal: {xp: number, before: number, after: number},
