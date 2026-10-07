@@ -1,0 +1,1320 @@
+{
+  "schemaVersion": 1,
+  "id": "lf14-2",
+  "lernfeld": { "id": "LF14", "title": "Marketingmaßnahmen entwickeln und durchführen" },
+  "title": "LF14.2 – Kundenanalyse, Verkauf, Marketingkonzept & Kundendienst",
+  "description": "Klausurteil LF14.2: Kunden-ABC-Analyse, Verkaufsgespräch, Marketingkonzept mit den 4 P, Kundendienst, Kundenzufriedenheit, Beschwerdemanagement und Kundentypen.",
+  "reviewStatus": "draft",
+  "source": {
+    "type": "Berufsschul-Skript",
+    "note": "Fragen eigenständig formuliert auf Basis des Skripts LF14 (Kann-Liste-Abschnitt zwischen ‚Klausur LF14.1‘ und ‚Klausur LF14.2‘). sourceRef = Seitenzahl im PDF. Das Skript selbst wird NICHT mit ausgeliefert. Fragen mit supplemented=true enthalten Inhalte, die über den Skripttext hinausgehen – mit Unterricht abgleichen."
+  },
+  "exam": {
+    "title": "Klausur-Simulation LF14.2",
+    "questionCount": 20,
+    "durationMinutes": 45,
+    "maxOpenQuestions": 2,
+    "topicWeights": {
+      "abc": 3,
+      "verkauf": 2,
+      "konzept": 3,
+      "preis": 2,
+      "distkomm": 2,
+      "kundendienst": 2,
+      "zufriedenheit": 2,
+      "beschwerde": 3,
+      "kundentypen": 1
+    }
+  },
+  "topics": [
+    {
+      "id": "abc",
+      "title": "Kunden-ABC-Analyse",
+      "order": 1,
+      "icon": "📊",
+      "canDo": [
+        { "id": "abc.c1", "text": "Ich kann erklären, was eine Kunden-ABC-Analyse ist und warum sie durchgeführt wird.", "questionIds": ["abc-01", "abc-02", "abc-16"] },
+        { "id": "abc.c2", "text": "Ich kann eine ABC-Analyse anhand von Umsatzzahlen durchführen (Anteile berechnen, kumulieren, einteilen).", "questionIds": ["abc-03", "abc-05", "abc-06", "abc-08", "abc-09", "abc-10", "abc-11", "abc-12"] },
+        { "id": "abc.c3", "text": "Ich kann aus den Ergebnissen Marketingmaßnahmen ableiten.", "questionIds": ["abc-07", "abc-13", "abc-14"] },
+        { "id": "abc.c4", "text": "Ich kann Vor- und Nachteile sowie weitere Einsatzbereiche der ABC-Analyse nennen.", "questionIds": ["abc-04", "abc-15"] }
+      ]
+    },
+    {
+      "id": "verkauf",
+      "title": "Das Verkaufsgespräch",
+      "order": 2,
+      "icon": "🤝",
+      "canDo": [
+        { "id": "verkauf.c1", "text": "Ich kann die Phasen eines Verkaufsgesprächs nennen und einen Leitfaden entwickeln.", "questionIds": ["vk-01", "vk-06", "vk-07", "vk-12", "vk-14"] },
+        { "id": "verkauf.c2", "text": "Ich kann Fragetechniken unterscheiden und gezielt einsetzen.", "questionIds": ["vk-02", "vk-03", "vk-04", "vk-05", "vk-13"] },
+        { "id": "verkauf.c3", "text": "Ich kann überzeugend argumentieren und mit Einwänden umgehen.", "questionIds": ["vk-08", "vk-09", "vk-10", "vk-11"] }
+      ]
+    },
+    {
+      "id": "konzept",
+      "title": "Marketingkonzept & Produktpolitik",
+      "order": 3,
+      "icon": "🧭",
+      "canDo": [
+        { "id": "konzept.c1", "text": "Ich kann die Phasen des Marketingprozesses und eines Marketingkonzepts nennen.", "questionIds": ["mk-01", "mk-02", "mk-03"] },
+        { "id": "konzept.c2", "text": "Ich kann die Produktpolitik erläutern und von der Sortimentspolitik abgrenzen.", "questionIds": ["mk-04", "mk-09", "mk-10", "mk-11"] },
+        { "id": "konzept.c3", "text": "Ich kann ein Produkt einer Phase des Produktlebenszyklus zuordnen und passende Maßnahmen auswählen.", "questionIds": ["mk-05", "mk-06", "mk-07", "mk-08", "mk-12"] }
+      ]
+    },
+    {
+      "id": "preis",
+      "title": "Preispolitik",
+      "order": 4,
+      "icon": "💶",
+      "canDo": [
+        { "id": "preis.c1", "text": "Ich kann Einflussfaktoren auf den Preis und die vier Arten der Preispolitik erklären.", "questionIds": ["pr-01", "pr-02", "pr-08", "pr-09"] },
+        { "id": "preis.c2", "text": "Ich kann Preisuntergrenzen unterscheiden und berechnen.", "questionIds": ["pr-03", "pr-04"] },
+        { "id": "preis.c3", "text": "Ich kann Preismodifizierung, Preisdifferenzierung und Konditionenpolitik voneinander abgrenzen.", "questionIds": ["pr-05", "pr-06", "pr-07"] }
+      ]
+    },
+    {
+      "id": "distkomm",
+      "title": "Distributions- & Kommunikationspolitik",
+      "order": 5,
+      "icon": "📣",
+      "canDo": [
+        { "id": "distkomm.c1", "text": "Ich kann erläutern, was die Distributionspolitik umfasst.", "questionIds": ["dk-01", "dk-02", "dk-03"] },
+        { "id": "distkomm.c2", "text": "Ich kann Maßnahmen der Kommunikationspolitik zuordnen und passend zum Produktlebenszyklus auswählen.", "questionIds": ["dk-04", "dk-05", "dk-06", "dk-07"] }
+      ]
+    },
+    {
+      "id": "kundendienst",
+      "title": "Kundendienst",
+      "order": 6,
+      "icon": "🎧",
+      "canDo": [
+        { "id": "kundendienst.c1", "text": "Ich kann erklären, was der Kundendienst ist und welche Aufgaben er hat.", "questionIds": ["kd-01", "kd-02", "kd-03"] },
+        { "id": "kundendienst.c2", "text": "Ich kann die Formen des Kundendienstes nach Zeitpunkt und Art benennen.", "questionIds": ["kd-04", "kd-05"] },
+        { "id": "kundendienst.c3", "text": "Ich kann den Zusammenhang zwischen Kundenservice und den vier absatzpolitischen Instrumenten herleiten.", "questionIds": ["kd-06"] }
+      ]
+    },
+    {
+      "id": "zufriedenheit",
+      "title": "Kundenzufriedenheit & Kundenpflege",
+      "order": 7,
+      "icon": "⭐",
+      "canDo": [
+        { "id": "zufriedenheit.c1", "text": "Ich kann die Entstehung und die Stufen der Kundenzufriedenheit erklären.", "questionIds": ["kz-01", "kz-02"] },
+        { "id": "zufriedenheit.c2", "text": "Ich kann Bedeutung, Ziel und Instrumente der Kundenpflege erläutern.", "questionIds": ["kz-03", "kz-04", "kz-05", "kz-06", "kz-07", "kz-08"] },
+        { "id": "zufriedenheit.c3", "text": "Ich kann aus einer Kundenumfrage die wichtigsten Infos entnehmen und Maßnahmen ableiten.", "questionIds": ["kz-09"] }
+      ]
+    },
+    {
+      "id": "beschwerde",
+      "title": "Beschwerdemanagement",
+      "order": 8,
+      "icon": "🛠️",
+      "canDo": [
+        { "id": "beschwerde.c1", "text": "Ich kann aktives, reaktives und indirektes Beschwerdemanagement voneinander abgrenzen.", "questionIds": ["bm-01", "bm-03", "bm-04"] },
+        { "id": "beschwerde.c2", "text": "Ich kann den Ablauf des Beschwerdemanagements erklären.", "questionIds": ["bm-02", "bm-05", "bm-06"] },
+        { "id": "beschwerde.c3", "text": "Ich kann Ziel und Chancen des Beschwerdemanagements erläutern.", "questionIds": ["bm-07", "bm-08", "bm-09", "bm-10"] },
+        { "id": "beschwerde.c4", "text": "Ich kann einen Leitfaden für Reklamationsgespräche erstellen.", "questionIds": ["bm-11"] }
+      ]
+    },
+    {
+      "id": "kundentypen",
+      "title": "Kundentypen (4-Farben-Modell)",
+      "order": 9,
+      "icon": "🎨",
+      "canDo": [
+        { "id": "kundentypen.c1", "text": "Ich kann Kundentypen erkennen und ihre Merkmale nennen.", "questionIds": ["kt-01", "kt-05", "kt-06"] },
+        { "id": "kundentypen.c2", "text": "Ich kann passende Maßnahmen für den Umgang mit verschiedenen Kundentypen nennen.", "questionIds": ["kt-02", "kt-03", "kt-04"] }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "abc-01", "topic": "abc", "type": "single", "difficulty": 1,
+      "prompt": "Nach welchem Kriterium werden Kunden bei der klassischen Kunden-ABC-Analyse eingeteilt?",
+      "options": [
+        "Nach ihrem Umsatz in einer Periode (meist ein Jahr)",
+        "Nach der Dauer der Geschäftsbeziehung",
+        "Nach der Entfernung zum Firmensitz",
+        "Nach der Anzahl ihrer Mitarbeitenden"
+      ],
+      "answer": 0,
+      "explanation": "Die Kunden-ABC-Analyse ist umsatzbasiert: Die Umsätze aller Kunden einer Periode werden verglichen und die Kunden in A (sehr wichtig), B (wichtig) und C (weniger wichtig) eingeteilt.",
+      "sourceRef": "PDF S. 38"
+    },
+    {
+      "id": "abc-02", "topic": "abc", "type": "single", "difficulty": 1,
+      "prompt": "Warum führen Speditionen eine Kunden-ABC-Analyse durch?",
+      "options": [
+        "Weil Personal und Geld begrenzt sind und nicht jeder Kunde gleich intensiv betreut werden kann",
+        "Weil sie gesetzlich vorgeschrieben ist",
+        "Um C-Kunden automatisch zu kündigen",
+        "Um für alle Kunden denselben Preis festzulegen"
+      ],
+      "answer": 0,
+      "explanation": "Ressourcen sind knapp. Die ABC-Analyse zeigt, welche Kunden wirtschaftlich besonders wichtig sind – danach richtet sich, wie intensiv sie betreut werden.",
+      "sourceRef": "PDF S. 38"
+    },
+    {
+      "id": "abc-03", "topic": "abc", "type": "order", "difficulty": 2,
+      "prompt": "Bring die Schritte einer kundenorientierten ABC-Analyse in die richtige Reihenfolge.",
+      "items": [
+        "Gesamtumsatz aller Kunden ermitteln",
+        "Kunden nach Umsatz absteigend sortieren",
+        "Prozentualen Anteil jedes Kunden am Gesamtumsatz berechnen",
+        "Prozentanteile von oben nach unten kumulieren",
+        "Kunden in A, B und C einteilen"
+      ],
+      "explanation": "Erst die Summe, dann sortieren, dann Anteile berechnen, dann kumulieren – kategorisiert wird ganz am Ende.",
+      "sourceRef": "PDF S. 39"
+    },
+    {
+      "id": "abc-04", "topic": "abc", "type": "categorize", "difficulty": 2,
+      "prompt": "Vorteil oder Nachteil der ABC-Analyse? Ordne zu.",
+      "categories": ["Vorteil", "Nachteil"],
+      "items": [
+        { "text": "Einfach anzuwenden und für viele Bereiche nutzbar", "category": 0 },
+        { "text": "Geringer Aufwand bei der Durchführung", "category": 0 },
+        { "text": "Liefert eine Grundlage, um den Marketing-Mix gezielt auf die wichtigsten Kunden auszurichten", "category": 0 },
+        { "text": "Betrachtet nur eine einzige Größe – den Umsatz", "category": 1 },
+        { "text": "Zeigt nur den aktuellen Ist-Zustand, künftige Entwicklungen bleiben außen vor", "category": 1 },
+        { "text": "Qualitative Merkmale wie Kundentreue oder Entwicklungspotenzial werden nicht berücksichtigt", "category": 1 }
+      ],
+      "explanation": "Stark: simpel, schnell, gute Entscheidungsbasis. Schwach: rein quantitativ und rückblickend – ein neuer Kunde mit großem Potenzial kann so fälschlich als C-Kunde landen.",
+      "sourceRef": "PDF S. 38, 43"
+    },
+    {
+      "id": "abc-05", "topic": "abc", "type": "numeric", "difficulty": 2,
+      "context": {
+        "text": "Kundenstruktur der Wall GmbH (Spedition, Hamburg):",
+        "table": {
+          "headers": ["Kategorie", "Anzahl Kunden", "Umsatz"],
+          "rows": [
+            ["A-Kunden", "12", "1.280.000 €"],
+            ["B-Kunden", "32", "380.000 €"],
+            ["C-Kunden", "156", "340.000 €"]
+          ]
+        }
+      },
+      "prompt": "Wie viel Prozent des Gesamtumsatzes entfallen auf die A-Kunden?",
+      "answer": 64, "tolerance": 0.5, "unit": "%", "decimals": 0,
+      "explanation": "Gesamtumsatz = 1.280.000 + 380.000 + 340.000 = 2.000.000 €. 1.280.000 / 2.000.000 × 100 = 64 %.",
+      "sourceRef": "PDF S. 40"
+    },
+    {
+      "id": "abc-06", "topic": "abc", "type": "numeric", "difficulty": 2,
+      "context": {
+        "text": "Kundenstruktur der Wall GmbH (Spedition, Hamburg):",
+        "table": {
+          "headers": ["Kategorie", "Anzahl Kunden", "Umsatz"],
+          "rows": [
+            ["A-Kunden", "12", "1.280.000 €"],
+            ["B-Kunden", "32", "380.000 €"],
+            ["C-Kunden", "156", "340.000 €"]
+          ]
+        }
+      },
+      "prompt": "Wie viel Prozent aller Kunden sind A-Kunden?",
+      "answer": 6, "tolerance": 0.1, "unit": "%", "decimals": 0,
+      "explanation": "Kunden gesamt = 12 + 32 + 156 = 200. 12 / 200 × 100 = 6 %. Heißt: 6 % der Kunden bringen 64 % des Umsatzes.",
+      "sourceRef": "PDF S. 40"
+    },
+    {
+      "id": "abc-07", "topic": "abc", "type": "single", "difficulty": 2,
+      "context": {
+        "text": "Wall GmbH: 6 % der Kunden (A) bringen 64 % des Umsatzes, 16 % (B) bringen 19 %, 78 % (C) bringen 17 %."
+      },
+      "prompt": "Welche Schlussfolgerung für die Marketingmaßnahmen ist am sinnvollsten?",
+      "options": [
+        "A-Kunden individuell und intensiv betreuen, B-Kunden gezielt zu A-Kunden entwickeln, C-Kunden standardisiert und kostengünstig betreuen",
+        "Alle 200 Kunden exakt gleich betreuen, damit sich niemand benachteiligt fühlt",
+        "Sich auf die C-Kunden konzentrieren, weil sie die Mehrheit bilden",
+        "A-Kunden weniger betreuen, weil sie ohnehin schon viel Umsatz bringen"
+      ],
+      "answer": 0,
+      "explanation": "Fällt einer der wenigen A-Kunden weg, tut das richtig weh – also maximale Bindung. B-Kunden haben Potenzial nach oben. Für C-Kunden lohnen sich einfache, günstige Maßnahmen.",
+      "sourceRef": "PDF S. 38, 40"
+    },
+    {
+      "id": "abc-08", "topic": "abc", "type": "numeric", "difficulty": 2,
+      "context": {
+        "text": "Umsätze im Bereich Sammelgut, letzte 12 Monate (Kunden mit „M“):",
+        "table": {
+          "headers": ["Kunde", "Umsatz in €"],
+          "rows": [
+            ["Mansche", "23.200"], ["Maenning", "2.280"], ["Mohls", "4.000"], ["Mayr", "930"], ["Mopp", "16.000"],
+            ["Maschke", "670"], ["Meineke", "370"], ["Miesbach", "3.700"], ["Munster", "880"], ["Mirage", "5.350"]
+          ]
+        }
+      },
+      "prompt": "Wie hoch ist der Gesamtumsatz aller M-Kunden?",
+      "answer": 57380, "tolerance": 0, "unit": "€", "decimals": 0,
+      "explanation": "Alle zehn Umsätze addieren: 57.380 €.",
+      "sourceRef": "PDF S. 41"
+    },
+    {
+      "id": "abc-09", "topic": "abc", "type": "numeric", "difficulty": 2,
+      "context": {
+        "text": "Umsätze im Bereich Sammelgut, letzte 12 Monate (Kunden mit „M“), Gesamtumsatz 57.380 €:",
+        "table": {
+          "headers": ["Kunde", "Umsatz in €"],
+          "rows": [
+            ["Mansche", "23.200"], ["Maenning", "2.280"], ["Mohls", "4.000"], ["Mayr", "930"], ["Mopp", "16.000"],
+            ["Maschke", "670"], ["Meineke", "370"], ["Miesbach", "3.700"], ["Munster", "880"], ["Mirage", "5.350"]
+          ]
+        }
+      },
+      "prompt": "Welchen Anteil hat Kunde Mansche am Gesamtumsatz (in %, auf 2 Nachkommastellen)?",
+      "answer": 40.43, "tolerance": 0.02, "unit": "%", "decimals": 2,
+      "explanation": "23.200 / 57.380 × 100 = 40,43 %.",
+      "sourceRef": "PDF S. 41"
+    },
+    {
+      "id": "abc-10", "topic": "abc", "type": "numeric", "difficulty": 3,
+      "context": {
+        "text": "Umsätze im Bereich Sammelgut, letzte 12 Monate (Kunden mit „M“), Gesamtumsatz 57.380 €:",
+        "table": {
+          "headers": ["Kunde", "Umsatz in €"],
+          "rows": [
+            ["Mansche", "23.200"], ["Maenning", "2.280"], ["Mohls", "4.000"], ["Mayr", "930"], ["Mopp", "16.000"],
+            ["Maschke", "670"], ["Meineke", "370"], ["Miesbach", "3.700"], ["Munster", "880"], ["Mirage", "5.350"]
+          ]
+        }
+      },
+      "prompt": "Wie hoch ist der kumulierte Umsatzanteil nach den beiden umsatzstärksten Kunden (in %, auf 2 Nachkommastellen)?",
+      "answer": 68.32, "tolerance": 0.02, "unit": "%", "decimals": 2,
+      "explanation": "Rang 1 Mansche (40,43 %) + Rang 2 Mopp (16.000 / 57.380 = 27,88 %) ≈ 68,32 %. Mit gerundeten Einzelwerten kommst du auf 68,31 % – beides wird akzeptiert.",
+      "sourceRef": "PDF S. 41"
+    },
+    {
+      "id": "abc-11", "topic": "abc", "type": "multi", "difficulty": 3,
+      "context": {
+        "text": "Umsätze im Bereich Sammelgut (Kunden mit „M“). Einteilung nach Kundenanzahl: 20 % A-, 30 % B-, 50 % C-Kunden.",
+        "table": {
+          "headers": ["Kunde", "Umsatz in €"],
+          "rows": [
+            ["Mansche", "23.200"], ["Maenning", "2.280"], ["Mohls", "4.000"], ["Mayr", "930"], ["Mopp", "16.000"],
+            ["Maschke", "670"], ["Meineke", "370"], ["Miesbach", "3.700"], ["Munster", "880"], ["Mirage", "5.350"]
+          ]
+        }
+      },
+      "prompt": "Welche Kunden sind B-Kunden?",
+      "options": ["Mirage", "Mohls", "Miesbach", "Mopp", "Maenning", "Mayr"],
+      "answer": [0, 1, 2],
+      "explanation": "10 Kunden → 2 A, 3 B, 5 C. Sortiert: Mansche, Mopp (A) | Mirage 5.350 €, Mohls 4.000 €, Miesbach 3.700 € (B) | der Rest C.",
+      "sourceRef": "PDF S. 41"
+    },
+    {
+      "id": "abc-12", "topic": "abc", "type": "categorize", "difficulty": 2,
+      "context": {
+        "text": "Nettoumsätze der XPressParcel AG (in T€). Einteilung nach Kundenanzahl: 20 % A, 30 % B, 50 % C.",
+        "table": {
+          "headers": ["Kunde", "Nettoumsatz"],
+          "rows": [
+            ["Rapid Services", "410"], ["Ohlssen GmbH", "710"], ["Simiotto AG", "920"], ["Markus Schmidt OHG", "17.100"], ["Blum & Voss", "4.300"],
+            ["HansaAir", "23.400"], ["Busair", "4.500"], ["Hansaluft", "970"], ["Piral GmbH", "2.200"], ["Miesbach", "6.300"]
+          ]
+        }
+      },
+      "prompt": "Ordne die Kunden der richtigen Kategorie zu.",
+      "categories": ["A-Kunde", "B-Kunde", "C-Kunde"],
+      "items": [
+        { "text": "HansaAir", "category": 0 },
+        { "text": "Markus Schmidt OHG", "category": 0 },
+        { "text": "Miesbach", "category": 1 },
+        { "text": "Busair", "category": 1 },
+        { "text": "Blum & Voss", "category": 1 },
+        { "text": "Piral GmbH", "category": 2 },
+        { "text": "Hansaluft", "category": 2 },
+        { "text": "Simiotto AG", "category": 2 },
+        { "text": "Ohlssen GmbH", "category": 2 },
+        { "text": "Rapid Services", "category": 2 }
+      ],
+      "explanation": "Sortiert: HansaAir (38,5 %) und Markus Schmidt OHG (28,1 %) sind A – zusammen schon 66,6 % des Umsatzes. Miesbach, Busair, Blum & Voss sind B (kumuliert 91,4 %). Der Rest ist C.",
+      "sourceRef": "PDF S. 58–59, 65"
+    },
+    {
+      "id": "abc-13", "topic": "abc", "type": "single", "difficulty": 1,
+      "prompt": "Welche Maßnahme passt am besten zu C-Kunden?",
+      "options": [
+        "Standardisierte, kostengünstige Betreuung, z. B. Newsletter oder Online-Buchung",
+        "Persönlicher Key-Account-Manager mit wöchentlichen Besuchen",
+        "Individuell verhandelte Sonderraten und exklusive Events",
+        "Sofortige Beendigung der Geschäftsbeziehung"
+      ],
+      "answer": 0,
+      "explanation": "C-Kunden tragen wenig zum Umsatz bei – sie werden betreut, aber mit einfachen, günstigen Mitteln. Eine Beziehung abbrechen nur nach sorgfältiger Prüfung.",
+      "sourceRef": "PDF S. 38"
+    },
+    {
+      "id": "abc-14", "topic": "abc", "type": "truefalse", "difficulty": 2,
+      "prompt": "Ein Kunde, der in der ABC-Analyse als C-Kunde eingestuft wird, sollte grundsätzlich aufgegeben werden.",
+      "answer": false,
+      "explanation": "Falsch. Neue Geschäftsbeziehungen starten oft klein. Potenzial, Treue oder die Rolle als Weiterempfehler zeigt die Umsatzzahl nicht – deshalb erst nach sorgfältiger Einschätzung entscheiden.",
+      "sourceRef": "PDF S. 38"
+    },
+    {
+      "id": "abc-15", "topic": "abc", "type": "multi", "difficulty": 2, "supplemented": true,
+      "prompt": "Wo kann die ABC-Analyse in einer Spedition außerdem sinnvoll eingesetzt werden?",
+      "options": [
+        "Im Lager zur Einteilung von Artikeln bzw. Sendungen",
+        "Im Einkauf zur Bewertung von Lieferanten bzw. Frachtführern nach Einkaufsvolumen",
+        "Zur Priorisierung von Aufgaben im Arbeitsalltag",
+        "Zur Berechnung der Lohnsteuer von Mitarbeitenden"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "Das Prinzip „wenige Elemente machen den Großteil des Werts aus“ funktioniert überall, wo man Wichtiges von Unwichtigem trennen will – im Lager (kennst du aus LF 9), im Einkauf oder beim Zeitmanagement.",
+      "sourceRef": "PDF S. 39, 63"
+    },
+    {
+      "id": "abc-16", "topic": "abc", "type": "open", "difficulty": 2,
+      "prompt": "Erklären Sie, was unter einer kundenbezogenen ABC-Analyse zu verstehen ist und warum Unternehmen sie durchführen.",
+      "modelAnswer": "Bei der kundenbezogenen ABC-Analyse werden die Kunden anhand ihres Umsatzes in einer Periode (meist ein Jahr) in A-Kunden (sehr wichtig), B-Kunden (wichtig) und C-Kunden (weniger wichtig) eingeteilt. Dazu wird der Umsatzanteil jedes Kunden ermittelt, die Kunden werden absteigend sortiert und die Anteile kumuliert. Unternehmen führen sie durch, weil Personal und finanzielle Mittel begrenzt sind: Die Analyse zeigt, welche Kunden wie intensiv betreut werden sollen – A-Kunden individuell und intensiv, C-Kunden einfach und kostengünstig. Sie ist damit eine Grundlage für Entscheidungen im Marketing-Mix.",
+      "rubric": [
+        { "criterion": "Einteilung der Kunden nach Umsatz in A/B/C korrekt beschrieben", "points": 2 },
+        { "criterion": "Vorgehen grob erklärt (Anteile ermitteln, sortieren, kumulieren)", "points": 1 },
+        { "criterion": "Begründung: begrenzte Ressourcen bzw. unterschiedlich intensive Betreuung", "points": 2 },
+        { "criterion": "Bezug zu Marketingmaßnahmen hergestellt", "points": 1 }
+      ],
+      "keywords": ["Umsatz", "A-Kunden", "C-Kunden", "Ressourcen", "Betreuung", "kumul"],
+      "explanation": "Klausur-Tipp: „Erklären“ heißt Begriff UND Zweck – nur die Definition gibt keine volle Punktzahl.",
+      "sourceRef": "PDF S. 38–40"
+    },
+
+    {
+      "id": "vk-01", "topic": "verkauf", "type": "single", "difficulty": 1,
+      "prompt": "Worum geht es im Kern bei einem Verkaufsgespräch?",
+      "options": [
+        "Herauszufinden, was der Kunde braucht, und ihm eine passende Leistung mit möglichst großem Nutzen anzubieten",
+        "Dem Kunden möglichst viele Leistungen gleichzeitig zu verkaufen",
+        "Den Preis der Konkurrenz in jedem Fall zu unterbieten",
+        "Eine vorbereitete Präsentation ohne Unterbrechung vorzutragen"
+      ],
+      "answer": 0,
+      "explanation": "Der Kunde ist Partner, nicht Geldquelle. Ziel: Bedarf verstehen → passende Lösung mit echtem Nutzen (z. B. Zeit- oder Kostenvorteil).",
+      "sourceRef": "PDF S. 44"
+    },
+    {
+      "id": "vk-02", "topic": "verkauf", "type": "categorize", "difficulty": 2,
+      "prompt": "Welche Fragetechnik wird verwendet?",
+      "categories": ["Offene Frage", "Geschlossene Frage", "Suggestivfrage", "Emotionale Frage", "Aufschließende Frage"],
+      "items": [
+        { "text": "„Wie viele Paletten verschicken Sie im Monat nach Skandinavien?“", "category": 0 },
+        { "text": "„Passt Ihnen ein Termin am Dienstag?“", "category": 1 },
+        { "text": "„Sie wollen doch sicher auch, dass Ihre Ware pünktlich ankommt, oder?“", "category": 2 },
+        { "text": "„Was hat Ihnen an unserer letzten Abwicklung besonders gefallen?“", "category": 3 },
+        { "text": "„Viele Verlader erzählen uns, dass Avisierungen oft zu spät kommen.“", "category": 4 }
+      ],
+      "explanation": "Offen = W-Frage mit freier Antwort. Geschlossen = Ja/Nein. Suggestiv = Antwort wird in den Mund gelegt. Emotional = zielt auf Gefühle. Aufschließend = Problem verallgemeinern, damit sich der Kunde öffnet.",
+      "sourceRef": "PDF S. 45–46"
+    },
+    {
+      "id": "vk-03", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Warum sollte man mit geschlossenen Fragen im Verkaufsgespräch vorsichtig sein?",
+      "options": [
+        "Weil ein „Nein“ schnell eine negative Gesprächssituation erzeugen kann",
+        "Weil sie zu viele Informationen liefern",
+        "Weil sie nur am Telefon funktionieren",
+        "Weil Kunden sie grundsätzlich nicht beantworten"
+      ],
+      "answer": 0,
+      "explanation": "Geschlossene Fragen sind gut, um Verständnis zu checken – aber steht erst mal ein Nein im Raum, kippt die Stimmung leicht.",
+      "sourceRef": "PDF S. 45"
+    },
+    {
+      "id": "vk-04", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Wofür eignen sich emotionale Fragen besonders?",
+      "options": [
+        "Für den Gesprächsbeginn, um Vertrauen aufzubauen",
+        "Für die harte Preisverhandlung am Ende",
+        "Um den Kunden unter Druck zu setzen",
+        "Um schnell eine Ja/Nein-Entscheidung zu erzwingen"
+      ],
+      "answer": 0,
+      "explanation": "Emotionale Fragen sind unverbindlich und laden zu persönlichen Antworten ein – ideal zum Warmwerden.",
+      "sourceRef": "PDF S. 46"
+    },
+    {
+      "id": "vk-05", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Du weißt, dass dein Gesprächspartner Ärger mit seinem aktuellen Kurierdienst hat. Wie sprichst du das am geschicktesten an?",
+      "options": [
+        "Mit einer aufschließenden Frage: das Problem allgemein schildern („Viele Kunden berichten uns, dass …“)",
+        "Direkt: „Ihr Kurierdienst ist ja offenbar ziemlich schlecht, oder?“",
+        "Gar nicht – Probleme spricht man im Verkauf nie an",
+        "Mit einer geschlossenen Frage: „Haben Sie Probleme mit Ihrem Dienstleister?“"
+      ],
+      "answer": 0,
+      "explanation": "Probleme gibt man ungern zu. Wird das Thema verallgemeinert, fühlt sich der Kunde nicht ertappt und öffnet sich eher.",
+      "sourceRef": "PDF S. 46"
+    },
+    {
+      "id": "vk-06", "topic": "verkauf", "type": "order", "difficulty": 2,
+      "prompt": "Bring die fünf Hauptphasen eines Verkaufsgesprächs in die richtige Reihenfolge (die Vorbereitung läuft vorher).",
+      "items": [
+        "Kontaktphase (Einstieg, Beziehung aufbauen)",
+        "Analysephase (Bedarfsanalyse, Fragen stellen)",
+        "Angebotsphase (Nutzen zusammenfassen, Angebot präsentieren)",
+        "Argumentationsphase (Einwände behandeln)",
+        "Abschlussphase (Entscheidung, Vereinbarungen, Verabschiedung)"
+      ],
+      "explanation": "Erst Beziehung, dann Bedarf, dann Angebot, dann Einwände klären, dann Abschluss. Die Vorbereitung (Ziele festlegen, Infos sammeln) ist die unsichtbare Phase 0.",
+      "sourceRef": "PDF S. 48"
+    },
+    {
+      "id": "vk-07", "topic": "verkauf", "type": "multi", "difficulty": 1,
+      "prompt": "Welche Quellen eignen sich, um sich vor einem Verkaufsgespräch über ein Kundenunternehmen zu informieren?",
+      "options": [
+        "Handelskammer und Wirtschaftsverbände",
+        "Geschäftsberichte und Fachzeitschriften",
+        "Eigene Kundenkartei und bisherige Auftragsdaten",
+        "Gerüchte aus dem Bekanntenkreis ungeprüft übernehmen"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "Je mehr du vorher weißt, desto passender das Angebot. Bei Bestandskunden zählen vor allem die Auftragsentwicklung (Mengen, Ziele, Häufigkeit) und bisherige Probleme.",
+      "sourceRef": "PDF S. 44"
+    },
+    {
+      "id": "vk-08", "topic": "verkauf", "type": "truefalse", "difficulty": 1,
+      "prompt": "Verschränkte Arme und ein angespannter Gesichtsausdruck werden oft als Verschlossenheit gedeutet.",
+      "answer": true,
+      "explanation": "Richtig. Körpersprache wirkt meist unbewusst. Offene Haltung und freundliche Mimik unterstützen das gesprochene Wort; Hände in den Taschen oder eine zurückgelehnte Haltung wirken eher negativ.",
+      "sourceRef": "PDF S. 45"
+    },
+    {
+      "id": "vk-09", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Was macht ein Verkaufsargument wirklich wirksam?",
+      "options": [
+        "Es zeigt dem Kunden seinen konkreten Nutzen bzw. Gewinn",
+        "Es zählt möglichst viele Leistungsmerkmale auf",
+        "Es kritisiert den aktuellen Dienstleister des Kunden",
+        "Es wird möglichst schnell und ohne Beispiele vorgetragen"
+      ],
+      "answer": 0,
+      "explanation": "Merkmale allein überzeugen nicht. Entscheidend ist die Übersetzung in Nutzen: „Durch unser Live-Tracking sparen Ihre Disponenten täglich Nachfrage-Telefonate.“",
+      "sourceRef": "PDF S. 47"
+    },
+    {
+      "id": "vk-10", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Kunde: „Wir arbeiten seit Jahren zufrieden mit unserem Dienstleister und wollen nicht wechseln.“ Was ist die beste Reaktion?",
+      "options": [
+        "Den Grund des Einwands herausfinden und einen unverbindlichen Leistungsvergleich anbieten",
+        "Sofort einen deutlich niedrigeren Preis nennen",
+        "Das Gespräch beenden, da offensichtlich kein Bedarf besteht",
+        "Dem Kunden erklären, dass er sich irrt"
+      ],
+      "answer": 0,
+      "explanation": "Kein Einwand bleibt unbeantwortet. Erst klären: echter Grund oder Vorwand? Dann z. B.: „Ich kann mir vorstellen, dass Sie gut versorgt sind – darf ich Ihnen zeigen, wie wir im Vergleich abschneiden?“",
+      "sourceRef": "PDF S. 47"
+    },
+    {
+      "id": "vk-11", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Ein Kunde beschwert sich, dass Eil-Ersatzteile oft zu spät ankommen. Welches Motiv steckt dahinter – und welches Angebot passt?",
+      "options": [
+        "Zuverlässigkeit – z. B. ein zeitdefinierter Express-Service",
+        "Prestige – z. B. Lkw mit dem Firmenlogo des Kunden",
+        "Niedriger Preis – z. B. eine langsamere, günstige Sammelgutlinie",
+        "Bequemlichkeit – z. B. Rechnungen per Post statt per E-Mail"
+      ],
+      "answer": 0,
+      "explanation": "Hinter „schnell und pünktlich“ steckt der Wunsch nach Zuverlässigkeit und null Verzögerung. Genau darauf zielt das Angebot.",
+      "sourceRef": "PDF S. 47"
+    },
+    {
+      "id": "vk-12", "topic": "verkauf", "type": "single", "difficulty": 2,
+      "prompt": "Am Ende des Gesprächs möchte der Kunde noch Bedenkzeit. Was tust du?",
+      "options": [
+        "Nutzen zusammenfassen, Zusage für eine Rückmeldung einholen und nach angemessener Zeit nachfassen",
+        "Druck machen: Das Angebot gilt nur noch heute",
+        "Nichts weiter tun und abwarten, ob er sich meldet",
+        "Das Angebot sofort zurückziehen"
+      ],
+      "answer": 0,
+      "explanation": "Bedenkzeit ist normal und kein schlechtes Zeichen. Wichtig: konsequent nachfassen, ohne zu bedrängen – sonst schnappt sich die Konkurrenz den Auftrag.",
+      "sourceRef": "PDF S. 48"
+    },
+    {
+      "id": "vk-13", "topic": "verkauf", "type": "truefalse", "difficulty": 2,
+      "prompt": "In der Bedarfsanalyse sollte man sich vor allem auf Sendungsmenge und Preis konzentrieren.",
+      "answer": false,
+      "explanation": "Falsch. Wer nur nach Mengen fragt, landet schnell nur beim Preis. Besser auch fragen nach: Unternehmenszielen, Erfahrungen mit Mitbewerbern, Entscheidungskriterien für die Spediteurswahl, Zufriedenheit mit bisherigen Lösungen.",
+      "sourceRef": "PDF S. 46"
+    },
+    {
+      "id": "vk-14", "topic": "verkauf", "type": "open", "difficulty": 2,
+      "prompt": "Nennen und erläutern Sie vier Punkte, die Sie bei der Vorbereitung und Durchführung eines Verkaufsgesprächs beachten sollten.",
+      "modelAnswer": "1. Ziele festlegen: z. B. Neukunden gewinnen; Teilziele wie Sympathie aufbauen oder eine Leistungspräsentation; vorher prüfen, ob Kapazitäten vorhanden sind. 2. Informationen sammeln: über Kammer, Verbände, Geschäftsberichte, Fachzeitschriften, eigene Kundendaten. 3. Bedarf analysieren: mit offenen Fragen Wünsche, Motive und Entscheidungskriterien ermitteln. 4. Mit Nutzen argumentieren: Leistungsmerkmale in Kundennutzen übersetzen und nachvollziehbare Beispiele nutzen. Weitere mögliche Punkte: Körpersprache, Einwände ernst nehmen, am Ende Nutzen zusammenfassen und nachfassen.",
+      "rubric": [
+        { "criterion": "Vier sinnvolle Punkte genannt", "points": 2 },
+        { "criterion": "Jeder Punkt kurz erläutert", "points": 2 },
+        { "criterion": "Bezug zur Spedition bzw. zum Kunden erkennbar", "points": 1 }
+      ],
+      "keywords": ["Ziel", "Information", "Bedarf", "Frage", "Nutzen", "Einwand", "Körpersprache", "Abschluss"],
+      "explanation": "Klausur-Tipp: „Nennen und erläutern“ = Begriff + ein Satz, was dahintersteckt. Ein Speditionsbeispiel bringt oft den letzten Punkt.",
+      "sourceRef": "PDF S. 44–49"
+    },
+
+    {
+      "id": "mk-01", "topic": "konzept", "type": "order", "difficulty": 1,
+      "prompt": "Bring die Phasen des Marketing-Prozesses in die richtige Reihenfolge.",
+      "items": [
+        "Analyse der Marketing-Situation",
+        "Entwicklung des Marketingkonzepts",
+        "Ergreifen von Marketingmaßnahmen",
+        "Kontrolle der Ergebnisse"
+      ],
+      "explanation": "Marketing ist ein Prozess: Markt und eigene Position analysieren, Ziele und Strategie festlegen, Maßnahmen umsetzen, Erfolg prüfen – was wiederum zur Überarbeitung führen kann.",
+      "sourceRef": "PDF S. 2, 77"
+    },
+    {
+      "id": "mk-02", "topic": "konzept", "type": "categorize", "difficulty": 2, "supplemented": true,
+      "prompt": "Ordne die Bausteine eines Marketingkonzepts der passenden Stufe zu.",
+      "categories": ["Analyse", "Planung", "Umsetzung", "Erfolgskontrolle"],
+      "items": [
+        { "text": "Produktbeschreibung", "category": 0 },
+        { "text": "Situationsanalyse (Markt, Konkurrenz, eigene Stärken und Schwächen)", "category": 0 },
+        { "text": "Marketingziele festlegen", "category": 1 },
+        { "text": "Marketingstrategie entwickeln", "category": 1 },
+        { "text": "Marketingmaßnahmen aus Produkt-, Preis-, Distributions- und Kommunikationspolitik", "category": 2 },
+        { "text": "Soll-Ist-Vergleich der Marketingziele", "category": 3 }
+      ],
+      "explanation": "Analyse → Planung → Umsetzung → Erfolg. Erst wenn klar ist, wo man steht und wohin man will, werden Maßnahmen aus den 4 P ausgewählt.",
+      "sourceRef": "PDF S. 67–69, 91 (LH3)"
+    },
+    {
+      "id": "mk-03", "topic": "konzept", "type": "multi", "difficulty": 1,
+      "prompt": "Welche vier Instrumente bilden den klassischen Marketing-Mix (die 4 P)?",
+      "options": ["Produktpolitik", "Preispolitik", "Distributionspolitik", "Kommunikationspolitik", "Personalpolitik", "Finanzpolitik"],
+      "answer": [0, 1, 2, 3],
+      "explanation": "Product, Price, Place, Promotion. Sie werden gezielt kombiniert, um den größtmöglichen Verkaufserfolg zu erreichen.",
+      "sourceRef": "PDF S. 70"
+    },
+    {
+      "id": "mk-04", "topic": "konzept", "type": "single", "difficulty": 2,
+      "prompt": "Worin unterscheidet sich die Produktpolitik von der Sortimentspolitik?",
+      "options": [
+        "Produktpolitik betreibt der Hersteller bzw. Anbieter, der sein Angebot an die Kundenbedürfnisse anpasst; Sortimentspolitik betreibt ein Handelsunternehmen, das Produkte in sein Sortiment aufnimmt",
+        "Produktpolitik betrifft nur Waren, Sortimentspolitik nur Dienstleistungen",
+        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe",
+        "Sortimentspolitik legt die Preise fest, Produktpolitik die Werbung"
+      ],
+      "answer": 0,
+      "explanation": "Hersteller → Produktpolitik. Händler → Sortimentspolitik. Übrigens: Ein „Produkt“ kann auch eine Dienstleistung sein – z. B. eine Speditionsleistung.",
+      "sourceRef": "PDF S. 94"
+    },
+    {
+      "id": "mk-05", "topic": "konzept", "type": "order", "difficulty": 1,
+      "prompt": "Bring die Phasen des Produktlebenszyklus in die richtige Reihenfolge.",
+      "items": ["Einführung", "Wachstum", "Reife", "Sättigung", "Rückgang (Degeneration)"],
+      "explanation": "Der Produktlebenszyklus beschreibt den Weg eines Produkts vom Markteintritt bis zum Marktaustritt.",
+      "sourceRef": "PDF S. 94–95"
+    },
+    {
+      "id": "mk-06", "topic": "konzept", "type": "categorize", "difficulty": 2,
+      "prompt": "Welche Beschreibung passt zu welcher Phase des Produktlebenszyklus?",
+      "categories": ["Einführung", "Wachstum", "Reife", "Sättigung", "Rückgang"],
+      "items": [
+        { "text": "Produkt ist neu und kaum bekannt – meist noch kein Gewinn", "category": 0 },
+        { "text": "Nachfrage steigt, erste Gewinne, die Konkurrenz wird aufmerksam", "category": 1 },
+        { "text": "Umsatzmaximum, meist die längste Phase mit den höchsten Gewinnen", "category": 2 },
+        { "text": "Kein Marktwachstum mehr, die Gewinne fallen", "category": 3 },
+        { "text": "Verkäufe brechen stark ein, der Markt schrumpft", "category": 4 }
+      ],
+      "explanation": "Merkhilfe: bekannt werden → wachsen → Höhepunkt → stagnieren → abbauen.",
+      "sourceRef": "PDF S. 94–95"
+    },
+    {
+      "id": "mk-07", "topic": "konzept", "type": "single", "difficulty": 2,
+      "prompt": "Ein Produkt befindet sich im Rückgang. Welche zwei grundsätzlichen Möglichkeiten hat das Unternehmen?",
+      "options": [
+        "Produktelimination oder Relaunch",
+        "Preiserhöhung oder Werbeverbot",
+        "Produktdifferenzierung oder Fusion",
+        "Sortimentspolitik oder Konditionenpolitik"
+      ],
+      "answer": 0,
+      "explanation": "Entweder wird das Produkt vom Markt genommen (Elimination) oder nach deutlicher Überarbeitung neu eingeführt (Relaunch) – dann startet der Zyklus im Idealfall von vorn.",
+      "sourceRef": "PDF S. 95"
+    },
+    {
+      "id": "mk-08", "topic": "konzept", "type": "single", "difficulty": 2,
+      "prompt": "Wie kann ein Unternehmen in der späten Reifephase sinkenden Gewinnen entgegenwirken?",
+      "options": [
+        "Mit Produktvariationen, verstärktem Marketing und Rationalisierung zur Kostensenkung",
+        "Indem es alle Marketingmaßnahmen einstellt",
+        "Indem es das Produkt sofort eliminiert",
+        "Indem es die Preise grundsätzlich verdoppelt"
+      ],
+      "answer": 0,
+      "explanation": "In der Reifephase drängen immer mehr Mitbewerber in den Markt. Gegenmittel: das Produkt auffrischen, mehr Marketing, Kosten in Produktion und Vertrieb senken.",
+      "sourceRef": "PDF S. 94"
+    },
+    {
+      "id": "mk-09", "topic": "konzept", "type": "categorize", "difficulty": 2,
+      "prompt": "Ordne die Speditionsbeispiele der richtigen Form der Produktgestaltung zu.",
+      "categories": ["Produktdifferenzierung", "Produktdiversifikation/-innovation", "Produktvariation (Relaunch)", "Produkteliminierung"],
+      "items": [
+        { "text": "Zur bestehenden Sammelgutlinie kommt eine zusätzliche Express-Variante hinzu", "category": 0 },
+        { "text": "Die Spedition steigt neu in E-Commerce-Fulfillment ein", "category": 1 },
+        { "text": "Das bestehende Sendungsverfolgungsportal bekommt ein modernes Redesign", "category": 2 },
+        { "text": "Eine dauerhaft unrentable Linienverbindung wird eingestellt", "category": 3 }
+      ],
+      "explanation": "Differenzierung = bestehendes Produkt + neue Variante. Diversifikation = ganz neues Produkt bzw. Geschäftsfeld. Variation = bestehendes Produkt wird verändert. Eliminierung = Produkt fliegt raus.",
+      "sourceRef": "PDF S. 16, 95–96"
+    },
+    {
+      "id": "mk-10", "topic": "konzept", "type": "single", "difficulty": 2,
+      "prompt": "Welches Ziel verfolgt ein Unternehmen mit Produktdiversifikation?",
+      "options": [
+        "Die Produktpalette erweitern und so das Unternehmensrisiko verringern",
+        "Ein bestehendes Produkt leicht modernisieren",
+        "Kosten senken, indem Produkte gestrichen werden",
+        "Den Preis eines Produkts an die Konkurrenz anpassen"
+      ],
+      "answer": 0,
+      "explanation": "Mehrere Standbeine = weniger Abhängigkeit von einem Produkt. Das neue Produkt kann echt innovativ oder eine „Me-too-Innovation“ (Nachahmung) sein.",
+      "sourceRef": "PDF S. 96"
+    },
+    {
+      "id": "mk-11", "topic": "konzept", "type": "truefalse", "difficulty": 1,
+      "prompt": "Eine „Me-too-Innovation“ ist ein Produkt, das ein bereits vorhandenes Konkurrenzprodukt nachahmt.",
+      "answer": true,
+      "explanation": "Richtig – nicht jedes neue Produkt ist eine echte Innovation. Oft werden erfolgreiche Produkte anderer Anbieter nachgemacht.",
+      "sourceRef": "PDF S. 96"
+    },
+    {
+      "id": "mk-12", "topic": "konzept", "type": "open", "difficulty": 3,
+      "context": {
+        "text": "Die XPressParcel AG hat eine eigene Software zur Tourenplanung entwickelt und bietet sie jetzt erstmals auch anderen Speditionen zum Kauf an."
+      },
+      "prompt": "Ordnen Sie das Produkt einer Phase des Produktlebenszyklus zu und nennen Sie je zwei passende Maßnahmen für diese und für die nächste Phase.",
+      "modelAnswer": "Phase: Einführung – das Produkt ist neu am Markt und noch unbekannt, Gewinne sind noch nicht zu erwarten. Maßnahmen in der Einführung: Einführungswerbung (z. B. in Fachzeitschriften oder auf LinkedIn), PR (Pressemitteilung, Vortrag auf einer Branchenveranstaltung), Messeauftritt, Testlizenzen bzw. Einführungsangebote. Nächste Phase: Wachstum. Maßnahmen: Kapazitäten (Support, Schulung) ausbauen, Kundenbindung stärken, Produktdifferenzierung (z. B. Zusatzmodule), Preise anpassen, sich gegen aufkommende Konkurrenz positionieren.",
+      "rubric": [
+        { "criterion": "Phase Einführung korrekt zugeordnet und begründet", "points": 2 },
+        { "criterion": "Zwei passende Maßnahmen für die Einführung", "points": 2 },
+        { "criterion": "Nächste Phase (Wachstum) korrekt benannt", "points": 1 },
+        { "criterion": "Zwei passende Maßnahmen für das Wachstum", "points": 2 }
+      ],
+      "keywords": ["Einführung", "Wachstum", "Werbung", "PR", "Messe", "Bekanntheit", "Konkurrenz"],
+      "explanation": "Die Phase immer begründen – „Einführung, weil neu und noch unbekannt“ ist schon ein Punkt.",
+      "sourceRef": "PDF S. 65, 70, 94–95"
+    },
+
+    {
+      "id": "pr-01", "topic": "preis", "type": "categorize", "difficulty": 2,
+      "prompt": "Interner oder externer Einflussfaktor auf den Preis?",
+      "categories": ["Extern", "Intern"],
+      "items": [
+        { "text": "Angebot und Nachfrage", "category": 0 },
+        { "text": "Zahl der Mitbewerber", "category": 0 },
+        { "text": "Verhalten der Kunden", "category": 0 },
+        { "text": "Gesetzliche Vorgaben (z. B. Maut)", "category": 0 },
+        { "text": "Eigene Kosten", "category": 1 },
+        { "text": "Eigene Marketingstrategie", "category": 1 }
+      ],
+      "explanation": "Extern = Markt und Umfeld, kann das Unternehmen kaum beeinflussen. Intern = kommt aus dem Unternehmen selbst.",
+      "sourceRef": "PDF S. 17, 72"
+    },
+    {
+      "id": "pr-02", "topic": "preis", "type": "multi", "difficulty": 1,
+      "prompt": "Welche vier Arten der Preispolitik unterscheidet man?",
+      "options": [
+        "Kostenorientierte Preispolitik",
+        "Nachfrageorientierte Preispolitik",
+        "Konkurrenzorientierte Preispolitik",
+        "Marktorientierte Preispolitik (Target Costing)",
+        "Lieferantenorientierte Preispolitik",
+        "Steuerorientierte Preispolitik"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explanation": "Kosten: Was kostet uns die Leistung? Nachfrage: Was zahlt der Kunde? Konkurrenz: Was verlangen die anderen? Markt/Target Costing: Welcher Preis ist erzielbar – und welche Kosten dürfen wir dann maximal haben?",
+      "sourceRef": "PDF S. 72"
+    },
+    {
+      "id": "pr-03", "topic": "preis", "type": "categorize", "difficulty": 2,
+      "prompt": "Welche Preisuntergrenze ist gemeint?",
+      "categories": ["Kurzfristige Preisuntergrenze", "Langfristige Preisuntergrenze", "Liquiditätsorientierte Preisuntergrenze"],
+      "items": [
+        { "text": "Preis deckt nur die variablen Kosten (Teilkostenrechnung)", "category": 0 },
+        { "text": "Fixkosten werden vorübergehend von anderen Produkten getragen", "category": 0 },
+        { "text": "Preis deckt variable Kosten und Fixkosten (Vollkostenrechnung)", "category": 1 },
+        { "text": "Preis deckt alle Kosten plus weitere Ausgaben an Lieferanten oder Banken", "category": 2 },
+        { "text": "Im Fokus steht die ständige Zahlungsbereitschaft", "category": 2 }
+      ],
+      "explanation": "Kurzfristig = nur variable Kosten. Langfristig = Vollkosten. Liquiditätsorientiert = zusätzlich alles, was an Zahlungen anfällt.",
+      "sourceRef": "PDF S. 72–73"
+    },
+    {
+      "id": "pr-04", "topic": "preis", "type": "numeric", "difficulty": 2, "supplemented": true,
+      "context": {
+        "text": "Für eine Komplettladung Bremen–München fallen variable Kosten von 380 € an (Diesel, Maut, Spesen). Die anteiligen Fixkosten (Fahrzeug, Verwaltung) betragen 220 €."
+      },
+      "prompt": "Wie hoch ist die langfristige Preisuntergrenze?",
+      "answer": 600, "tolerance": 0, "unit": "€", "decimals": 0,
+      "explanation": "Langfristig müssen alle Kosten gedeckt sein: 380 € + 220 € = 600 €. Kurzfristig könnte die Spedition bis auf 380 € runtergehen – dann zahlt sie aber bei den Fixkosten drauf.",
+      "sourceRef": "PDF S. 72"
+    },
+    {
+      "id": "pr-05", "topic": "preis", "type": "single", "difficulty": 2,
+      "prompt": "Was unterscheidet Preismodifizierung von Preisdifferenzierung?",
+      "options": [
+        "Preismodifizierung verändert den Preis eines Produkts, um seine Marktposition zu verbessern; Preisdifferenzierung verlangt für dieselbe Leistung unterschiedliche Preise je nach Zeit, Raum, Person oder Sache",
+        "Preismodifizierung gilt nur für Waren, Preisdifferenzierung nur für Dienstleistungen",
+        "Beides bedeutet einfach, Rabatte zu gewähren",
+        "Preisdifferenzierung bedeutet, den Preis für alle Kunden gleichzeitig zu senken"
+      ],
+      "answer": 0,
+      "explanation": "Modifizierung = Preis ändern. Differenzierung = gleiche Leistung, unterschiedliche Preise für unterschiedliche Situationen bzw. Kundengruppen.",
+      "sourceRef": "PDF S. 73"
+    },
+    {
+      "id": "pr-06", "topic": "preis", "type": "categorize", "difficulty": 2, "supplemented": true,
+      "prompt": "Welche Art der Preisdifferenzierung liegt vor?",
+      "categories": ["Zeitlich", "Räumlich", "Personell"],
+      "items": [
+        { "text": "Günstigere Raten in der Nebensaison", "category": 0 },
+        { "text": "Frühbucherpreis für Messelogistik", "category": 0 },
+        { "text": "In Region Nord gelten andere Tarife als in Region Süd", "category": 1 },
+        { "text": "Auf einem Auslandsmarkt wird dieselbe Leistung günstiger angeboten als im Inland", "category": 1 },
+        { "text": "Sonderpreise für Mitglieder eines Branchenverbands", "category": 2 },
+        { "text": "Vergünstigter Paketversand für Studierende", "category": 2 }
+      ],
+      "explanation": "Zeitlich = abhängig vom Zeitpunkt. Räumlich = abhängig vom Gebiet bzw. Markt. Personell = abhängig von der Kundengruppe.",
+      "sourceRef": "PDF S. 73"
+    },
+    {
+      "id": "pr-07", "topic": "preis", "type": "single", "difficulty": 1,
+      "prompt": "Was umfasst die Konditionenpolitik?",
+      "options": [
+        "Vertragliche Regelungen zu Rabatten, Liefer- und Zahlungsbedingungen sowie Garantien",
+        "Die Auswahl der Vertriebswege",
+        "Die Gestaltung von Werbeanzeigen",
+        "Die Einteilung der Kunden in A, B und C"
+      ],
+      "answer": 0,
+      "explanation": "Konditionen = alles rund um den Preis, was vertraglich geregelt wird: Rabatte, Liefer- und Zahlungsbedingungen, Garantien.",
+      "sourceRef": "PDF S. 73"
+    },
+    {
+      "id": "pr-08", "topic": "preis", "type": "cloze", "difficulty": 2,
+      "prompt": "Vervollständige den Text.",
+      "text": "Der Preis ist zum einen das {0} für eine Leistung und zum anderen der {1} für die Kaufentscheidung. Er muss deshalb so gewählt werden, dass ausreichende {2} erzielt werden und die Leistung trotzdem {3} bleibt.",
+      "gaps": [
+        { "answer": "Entgelt" },
+        { "answer": "Maßstab" },
+        { "answer": "Erträge" },
+        { "answer": "konkurrenzfähig" }
+      ],
+      "distractors": ["Rabatt", "Fixkosten", "teuer", "Umsatzsteuer"],
+      "explanation": "Der Preis hat zwei Seiten: Er muss dem Unternehmen genug einbringen und gleichzeitig für den Kunden attraktiv genug sein.",
+      "sourceRef": "PDF S. 17, 72"
+    },
+    {
+      "id": "pr-09", "topic": "preis", "type": "single", "difficulty": 1, "supplemented": true,
+      "prompt": "Was passiert tendenziell mit dem Marktpreis, wenn das Angebot an Transportleistungen größer ist als die Nachfrage?",
+      "options": ["Er sinkt", "Er steigt", "Er bleibt immer gleich", "Er wird staatlich festgelegt"],
+      "answer": 0,
+      "explanation": "Überangebot → viele Anbieter kämpfen um wenige Aufträge → Preisdruck. Genau das ist im Transportmarkt seit der Deregulierung passiert: Aus dem Verkäufermarkt wurde ein Käufermarkt.",
+      "sourceRef": "PDF S. 1, 71"
+    },
+
+    {
+      "id": "dk-01", "topic": "distkomm", "type": "single", "difficulty": 1,
+      "prompt": "Worum geht es bei der Distributionspolitik?",
+      "options": [
+        "Um die Wahl der geeigneten Vertriebswege, über die eine Leistung zum Kunden gelangt",
+        "Um die Festlegung von Rabatten",
+        "Um die Imagepflege in der Öffentlichkeit",
+        "Um die Einteilung der Kunden nach Umsatz"
+      ],
+      "answer": 0,
+      "explanation": "Distribution = Verteilung. Die Frage ist: Auf welchem Weg bietet das Unternehmen seine Leistung an und wie bzw. wo kann der Kunde sie kaufen?",
+      "sourceRef": "PDF S. 98"
+    },
+    {
+      "id": "dk-02", "topic": "distkomm", "type": "single", "difficulty": 2,
+      "prompt": "Warum spielt in Speditionen und KEP-Unternehmen der direkte Vertrieb eine so große Rolle?",
+      "options": [
+        "Weil die persönliche Beziehung zum Kunden besonders wichtig ist und das persönliche Verkaufsgespräch dominiert",
+        "Weil indirekter Vertrieb gesetzlich verboten ist",
+        "Weil Dienstleistungen grundsätzlich nicht über Plattformen verkauft werden können",
+        "Weil Kunden keine Online-Buchung wünschen"
+      ],
+      "answer": 0,
+      "explanation": "Dienstleistungen leben vom Vertrauen. Indirekter Vertrieb ist trotzdem möglich – z. B. über Portale oder Kooperationen.",
+      "sourceRef": "PDF S. 98"
+    },
+    {
+      "id": "dk-03", "topic": "distkomm", "type": "categorize", "difficulty": 2,
+      "prompt": "Direkter oder indirekter Vertrieb?",
+      "categories": ["Direkter Vertrieb", "Indirekter Vertrieb"],
+      "items": [
+        { "text": "Eine Außendienstmitarbeiterin besucht einen Verlader", "category": 0 },
+        { "text": "Inside Sales ruft Bestandskunden an", "category": 0 },
+        { "text": "Buchung über die Online-Frachtplattform eines Drittanbieters", "category": 1 },
+        { "text": "Vermittlung über einen Kooperationspartner bzw. ein Netzwerk", "category": 1 }
+      ],
+      "explanation": "Direkt = kein Mittler zwischen Anbieter und Kunde. Indirekt = ein Dritter (Plattform, Partner) ist dazwischengeschaltet.",
+      "sourceRef": "PDF S. 98"
+    },
+    {
+      "id": "dk-04", "topic": "distkomm", "type": "order", "difficulty": 1,
+      "prompt": "Bring die Stufen des AIDA-Modells in die richtige Reihenfolge.",
+      "items": ["Attention – Aufmerksamkeit", "Interest – Interesse", "Desire – Kaufwunsch", "Action – Kauf"],
+      "explanation": "Jede Werbebotschaft soll erst auffallen, dann Interesse wecken, dann den Wunsch auslösen und schließlich zum Kauf führen.",
+      "sourceRef": "PDF S. 18"
+    },
+    {
+      "id": "dk-05", "topic": "distkomm", "type": "categorize", "difficulty": 2,
+      "prompt": "Werbung, Sales Promotion oder Public Relations?",
+      "categories": ["Werbung", "Sales Promotion (Verkaufsförderung)", "Public Relations (Öffentlichkeitsarbeit)"],
+      "items": [
+        { "text": "Anzeige in einer Logistik-Fachzeitschrift", "category": 0 },
+        { "text": "Gesponserter Social-Media-Post, der sich an Verlader richtet", "category": 0 },
+        { "text": "Kostenlose Testsendung für Neukunden", "category": 1 },
+        { "text": "Stand auf einer Logistikmesse", "category": 1 },
+        { "text": "Tag der offenen Tür im Lager", "category": 2 },
+        { "text": "Pressemitteilung über die neuen E-Lkw im Fuhrpark", "category": 2 }
+      ],
+      "explanation": "Werbung beeinflusst gezielt (potenzielle) Käufer. Sales Promotion setzt zusätzliche Kaufanreize (Proben, Muster, Messen). PR pflegt das Image des ganzen Unternehmens.",
+      "sourceRef": "PDF S. 18–19"
+    },
+    {
+      "id": "dk-06", "topic": "distkomm", "type": "single", "difficulty": 1,
+      "prompt": "Was ist das Hauptziel von Public Relations?",
+      "options": [
+        "Das Image des gesamten Unternehmens fördern und Vertrauen in der Öffentlichkeit aufbauen",
+        "Ein einzelnes Produkt kurzfristig günstiger anbieten",
+        "Die Vertriebswege auswählen",
+        "Kunden nach Umsatz einteilen"
+      ],
+      "answer": 0,
+      "explanation": "PR wirbt nicht für ein Produkt, sondern für das Unternehmen als Ganzes – z. B. mit Pressekonferenzen, Betriebsbesichtigungen oder Vorträgen.",
+      "sourceRef": "PDF S. 19"
+    },
+    {
+      "id": "dk-07", "topic": "distkomm", "type": "categorize", "difficulty": 3, "supplemented": true,
+      "prompt": "Welche Werbeart passt zu welcher Phase des Produktlebenszyklus?",
+      "categories": ["Einführung", "Wachstum", "Reife/Sättigung"],
+      "items": [
+        { "text": "Einführungswerbung: das neue Produkt bekannt machen", "category": 0 },
+        { "text": "Expansionswerbung: neue Kundengruppen gewinnen, Marktanteil ausbauen", "category": 1 },
+        { "text": "Erhaltungs- bzw. Erinnerungswerbung: Kunden halten, im Gedächtnis bleiben", "category": 2 }
+      ],
+      "explanation": "Die Werbeziele ändern sich mit der Phase: erst bekannt machen, dann ausbauen, dann halten.",
+      "sourceRef": "Checkliste PDF S. 79 – Inhalt ergänzt, mit Unterricht abgleichen"
+    },
+
+    {
+      "id": "kd-01", "topic": "kundendienst", "type": "single", "difficulty": 1,
+      "prompt": "Was versteht man unter dem Kundendienst (Customer Service)?",
+      "options": [
+        "Eine Abteilung, die Kunden zusätzlich zum eigentlichen Produkt bzw. zur Dienstleistung weitere Leistungen anbietet",
+        "Die Abteilung, die ausschließlich Rechnungen schreibt",
+        "Ein externes Callcenter, das nur Werbung macht",
+        "Die Personalabteilung für Kundenbetreuer"
+      ],
+      "answer": 0,
+      "explanation": "Kundendienst = organisatorische Einheit, die Zusatzleistungen rund um das Kernprodukt anbietet. Ziel: Kunden gewinnen und zu Dauerkunden machen.",
+      "sourceRef": "PDF S. 118"
+    },
+    {
+      "id": "kd-02", "topic": "kundendienst", "type": "multi", "difficulty": 1,
+      "prompt": "Welche Aufgabenbereiche hat der Kundendienst?",
+      "options": ["Förderung der Kundenzufriedenheit", "Kundenpflege", "Beschwerdemanagement", "Lohnbuchhaltung", "Tourenplanung der Fahrzeuge"],
+      "answer": [0, 1, 2],
+      "explanation": "Die drei Kernbereiche: Zufriedenheit, Pflege, Beschwerden.",
+      "sourceRef": "PDF S. 118, 120"
+    },
+    {
+      "id": "kd-03", "topic": "kundendienst", "type": "categorize", "difficulty": 2, "supplemented": true,
+      "prompt": "Zusatzleistungen können aus Waren, Dienstleistungen oder Rechten bestehen. Ordne zu.",
+      "categories": ["Ware", "Dienstleistung", "Recht"],
+      "items": [
+        { "text": "Kostenloses Verpackungsmaterial für Stammkunden", "category": 0 },
+        { "text": "Werbegeschenk als Zugabe", "category": 0 },
+        { "text": "Unterstützung bei der Zollabwicklung", "category": 1 },
+        { "text": "Montagehilfe beim Empfänger", "category": 1 },
+        { "text": "Kostenlose Stornierung bis 24 Stunden vor Abholung", "category": 2 },
+        { "text": "Umtauschrecht", "category": 2 }
+      ],
+      "explanation": "Ware = etwas Greifbares (Proben, Zugaben). Dienstleistung = eine Tätigkeit (Montage, Beratung). Recht = ein Anspruch (Umtausch, Storno).",
+      "sourceRef": "PDF S. 118"
+    },
+    {
+      "id": "kd-04", "topic": "kundendienst", "type": "categorize", "difficulty": 2,
+      "prompt": "Wann findet die Leistung statt? Ordne nach dem Zeitpunkt des Kundendienstes.",
+      "categories": ["Pre-Sales-Service", "At-Sales-Service", "After-Sales-Service"],
+      "items": [
+        { "text": "Beratung zur optimalen Verpackung vor der Auftragserteilung", "category": 0 },
+        { "text": "Kostenloses Angebot inklusive Routenvorschlag", "category": 0 },
+        { "text": "Live-Tracking und Statusmeldungen während des Transports", "category": 1 },
+        { "text": "Bearbeitung einer Reklamation nach der Zustellung", "category": 2 },
+        { "text": "Zufriedenheitsumfrage nach Auftragsabschluss", "category": 2 }
+      ],
+      "explanation": "Pre = vor dem Kauf, At = während, After = danach.",
+      "sourceRef": "PDF S. 119"
+    },
+    {
+      "id": "kd-05", "topic": "kundendienst", "type": "categorize", "difficulty": 2,
+      "prompt": "Welche Art von Kundendienst liegt vor?",
+      "categories": ["Warengebunden", "Nicht warengebunden", "Technisch", "Kaufmännisch"],
+      "items": [
+        { "text": "Lieferservice", "category": 0 },
+        { "text": "Montageservice", "category": 0 },
+        { "text": "Kinderbetreuung im Einkaufszentrum", "category": 1 },
+        { "text": "Installation", "category": 2 },
+        { "text": "Wartungsservice", "category": 2 },
+        { "text": "Kaufmännische Beratung", "category": 3 },
+        { "text": "Bearbeitung von Reklamationen", "category": 3 }
+      ],
+      "explanation": "Warengebunden = hängt direkt an der Ware. Nicht warengebunden = unabhängig vom Produkt. Technisch = Technik rund ums Produkt. Kaufmännisch = Beratung, Abwicklung, Reklamation.",
+      "note": "Zuordnung nach Wortliste LH7 rekonstruiert – mit der Lösung aus dem Unterricht abgleichen.",
+      "sourceRef": "PDF S. 99 (LH7), 119"
+    },
+    {
+      "id": "kd-06", "topic": "kundendienst", "type": "open", "difficulty": 3, "supplemented": true,
+      "prompt": "Ordnen Sie den Kundenservice einem der vier absatzpolitischen Instrumente zu und begründen Sie, warum er auch die anderen drei Instrumente berührt.",
+      "modelAnswer": "Der Kundenservice wird meist der Produktpolitik zugeordnet, weil Zusatzleistungen (z. B. Beratung, Tracking, Reklamationsbearbeitung) das eigentliche Leistungsangebot erweitern und aufwerten. Er wirkt aber auf alle Instrumente: Preispolitik – guter Service kann höhere Preise rechtfertigen bzw. in Konditionen eingepreist werden. Distributionspolitik – der Kundendienst ist direkter Kontaktpunkt und Vertriebskanal (z. B. Hotline, Kundenportal). Kommunikationspolitik – jede Servicesituation prägt das Image, zufriedene Kunden empfehlen weiter.",
+      "rubric": [
+        { "criterion": "Begründete Zuordnung (in der Regel Produktpolitik)", "points": 2 },
+        { "criterion": "Bezug zur Preispolitik", "points": 1 },
+        { "criterion": "Bezug zur Distributionspolitik", "points": 1 },
+        { "criterion": "Bezug zur Kommunikationspolitik", "points": 1 }
+      ],
+      "keywords": ["Produktpolitik", "Zusatzleistung", "Preis", "Distribution", "Kommunikation", "Image"],
+      "explanation": "Hier zählt die Begründung mehr als die Zuordnung selbst.",
+      "note": "Zuordnung wird im Unterricht ggf. anders begründet – Lösung der Lehrkraft prüfen.",
+      "sourceRef": "PDF S. 116"
+    },
+
+    {
+      "id": "kz-01", "topic": "zufriedenheit", "type": "single", "difficulty": 2, "supplemented": true,
+      "prompt": "Wie entsteht Kundenzufriedenheit?",
+      "options": [
+        "Durch den Vergleich der erwarteten Leistung (Soll) mit der tatsächlich wahrgenommenen Leistung (Ist)",
+        "Allein durch einen niedrigen Preis",
+        "Durch möglichst viel Werbung",
+        "Durch die Anzahl der Mitarbeitenden im Kundendienst"
+      ],
+      "answer": 0,
+      "explanation": "Zufriedenheit ist ein individueller, psychologischer Prozess: Jeder Kunde vergleicht, was er erwartet hat, mit dem, was er erlebt.",
+      "sourceRef": "PDF S. 125, 136"
+    },
+    {
+      "id": "kz-02", "topic": "zufriedenheit", "type": "categorize", "difficulty": 2, "supplemented": true,
+      "prompt": "Welche Stufe der Kundenzufriedenheit ergibt sich?",
+      "categories": ["Unzufriedenheit", "Zufriedenheit", "Begeisterung"],
+      "items": [
+        { "text": "Wahrgenommene Leistung < Erwartung", "category": 0 },
+        { "text": "Die Sendung kommt einen Tag zu spät, obwohl ein Fixtermin vereinbart war", "category": 0 },
+        { "text": "Wahrgenommene Leistung = Erwartung", "category": 1 },
+        { "text": "Die Sendung kommt wie vereinbart pünktlich und unbeschädigt an", "category": 1 },
+        { "text": "Wahrgenommene Leistung > Erwartung", "category": 2 },
+        { "text": "Der Disponent meldet sich proaktiv mit einer Lösung, bevor der Kunde das Problem überhaupt bemerkt", "category": 2 }
+      ],
+      "explanation": "Kundenzufriedenheit = Ist − Soll. Negativ → Unzufriedenheit, null → Zufriedenheit, positiv → Begeisterung.",
+      "sourceRef": "PDF S. 125"
+    },
+    {
+      "id": "kz-03", "topic": "zufriedenheit", "type": "single", "difficulty": 1,
+      "prompt": "Laut empirischen Studien kostet die Gewinnung eines Neukunden im Vergleich zum Halten eines Bestandskunden …",
+      "options": ["… etwa fünfmal so viel", "… etwa gleich viel", "… etwa halb so viel", "… etwa hundertmal so viel"],
+      "answer": 0,
+      "explanation": "Ungefähr Faktor 5 – und einen verlorenen Kunden zurückzugewinnen ist noch teurer. Deshalb ist Kundenpflege so wichtig.",
+      "sourceRef": "PDF S. 105"
+    },
+    {
+      "id": "kz-04", "topic": "zufriedenheit", "type": "order", "difficulty": 1,
+      "prompt": "Bring die Formen der Kundenbeziehung in die Reihenfolge, die ein Kunde im Idealfall durchläuft.",
+      "items": ["Neukunde", "Stammkunde", "Multiplikator"],
+      "explanation": "Neukunden überzeugen, durch gute Pflege zu Stammkunden machen – und im besten Fall empfehlen sie dich weiter.",
+      "sourceRef": "PDF S. 105"
+    },
+    {
+      "id": "kz-05", "topic": "zufriedenheit", "type": "single", "difficulty": 1,
+      "prompt": "Wann wird ein Kunde zum Multiplikator?",
+      "options": [
+        "Wenn er das Unternehmen aktiv weiterempfiehlt (Mundpropaganda)",
+        "Wenn er seinen Umsatz verdoppelt",
+        "Wenn er mehrere Standorte hat",
+        "Wenn er sich beschwert"
+      ],
+      "answer": 0,
+      "explanation": "Ein zufriedener Stammkunde, der dich weiterempfiehlt, ist Gold wert. Achtung: Unzufriedene Kunden wirken auch als Multiplikatoren – nur negativ.",
+      "sourceRef": "PDF S. 105, 107"
+    },
+    {
+      "id": "kz-06", "topic": "zufriedenheit", "type": "truefalse", "difficulty": 2,
+      "prompt": "Ein Vorstand sagt: „Kundenpflege lohnt sich nur bei Stamm- und Großkunden.“ Diese Aussage ist richtig.",
+      "answer": false,
+      "explanation": "Falsch. Neukunden müssen erst überzeugt werden, um überhaupt Stammkunden zu werden – ohne Pflege gibt es keine Stammkunden von morgen. Auch B- und C-Kunden sollen zufrieden sein. Die Intensität darf sich unterscheiden, gepflegt werden sollten alle.",
+      "sourceRef": "PDF S. 105, 126, 134"
+    },
+    {
+      "id": "kz-07", "topic": "zufriedenheit", "type": "multi", "difficulty": 1, "supplemented": true,
+      "prompt": "Welche Instrumente eignen sich zur Kundenpflege?",
+      "options": [
+        "Regelmäßige Kundengespräche und -besuche",
+        "Zufriedenheitsbefragungen",
+        "Newsletter mit relevanten Infos (z. B. Fahrplanänderungen)",
+        "Kundenevents oder persönliche Weihnachtsgrüße",
+        "Preiserhöhungen ohne Ankündigung"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explanation": "Alles, was die Beziehung stärkt und zeigt „wir kümmern uns“, ist Kundenpflege. Überraschende Preiserhöhungen bewirken das Gegenteil.",
+      "sourceRef": "PDF S. 125"
+    },
+    {
+      "id": "kz-08", "topic": "zufriedenheit", "type": "single", "difficulty": 1,
+      "prompt": "Wofür steht die Abkürzung CRM?",
+      "options": ["Customer Relationship Management", "Customer Revenue Measurement", "Cargo Route Management", "Central Risk Monitoring"],
+      "answer": 0,
+      "explanation": "CRM ist der englische Begriff für Kundenpflege bzw. Kundenbeziehungsmanagement.",
+      "sourceRef": "PDF S. 125"
+    },
+    {
+      "id": "kz-09", "topic": "zufriedenheit", "type": "open", "difficulty": 3,
+      "context": {
+        "text": "Übungsdaten (fiktiv): Kundenumfrage mit 250 Befragten – Anteil „zufrieden“ oder „sehr zufrieden“:",
+        "table": {
+          "headers": ["Bereich", "zufrieden"],
+          "rows": [
+            ["Qualität der Lieferung", "88 %"],
+            ["Pünktlichkeit der Zustellung", "81 %"],
+            ["Zusteller", "74 %"],
+            ["Fachliche Beratung", "69 %"],
+            ["Erreichbarkeit des Kundendienstes", "37 %"]
+          ]
+        }
+      },
+      "prompt": "Werten Sie die Umfrage kurz aus und leiten Sie zwei begründete Maßnahmen ab.",
+      "modelAnswer": "Auswertung: Die Kernleistungen (Qualität, Pünktlichkeit) werden überwiegend gut bewertet. Deutliche Schwachstelle ist die Erreichbarkeit des Kundendienstes (nur 37 % zufrieden); auch die fachliche Beratung ist ausbaufähig. Maßnahme 1: Erreichbarkeit verbessern – z. B. mehr Personal zu Stoßzeiten, Rückrufservice, Chat oder Kontaktformular, klare Zuständigkeiten. Begründung: Schlechte Erreichbarkeit verärgert gerade Kunden mit Problemen und macht sie zu negativen Multiplikatoren. Maßnahme 2: Beratungsqualität steigern – z. B. verpflichtende Schulungen für den Kundendienst. Den Erfolg über eine Folgebefragung kontrollieren.",
+      "rubric": [
+        { "criterion": "Größte Schwachstelle (Erreichbarkeit) erkannt", "points": 2 },
+        { "criterion": "Stärken bzw. weitere Auffälligkeiten benannt", "points": 1 },
+        { "criterion": "Zwei konkrete, passende Maßnahmen", "points": 2 },
+        { "criterion": "Maßnahmen begründet", "points": 1 }
+      ],
+      "keywords": ["Erreichbarkeit", "Schulung", "Personal", "Rückruf", "Beratung", "Befragung"],
+      "explanation": "Bei Diagramm-Aufgaben: erst das Auffälligste benennen, dann Maßnahmen direkt daran knüpfen.",
+      "sourceRef": "PDF S. 100, 121, 127"
+    },
+
+    {
+      "id": "bm-01", "topic": "beschwerde", "type": "single", "difficulty": 1,
+      "prompt": "Was bezeichnet Beschwerdemanagement?",
+      "options": [
+        "Den professionellen Umgang eines Unternehmens mit der von Kunden geäußerten Unzufriedenheit",
+        "Das Sammeln von Beschwerden, um Kunden abzumahnen",
+        "Die rechtliche Abwehr von Schadensersatzforderungen",
+        "Ein Werbeinstrument der Kommunikationspolitik"
+      ],
+      "answer": 0,
+      "explanation": "Beschwerdemanagement (auch Reklamationsmanagement) gehört zum Kundendienst und ist ein zentraler Teil des Kundenbeziehungsmanagements.",
+      "sourceRef": "PDF S. 106"
+    },
+    {
+      "id": "bm-02", "topic": "beschwerde", "type": "order", "difficulty": 2,
+      "prompt": "Bring die Schritte des direkten Beschwerdemanagementprozesses in die richtige Reihenfolge.",
+      "items": ["Beschwerdestimulierung", "Beschwerdeannahme", "Beschwerdebearbeitung", "Beschwerdereaktion"],
+      "explanation": "Kunden zum Beschweren ermutigen → Beschwerde vollständig, schnell und strukturiert aufnehmen → intern bearbeiten (Zuständigkeiten, Fristen, Eskalation) → dem Kunden eine Lösung anbieten.",
+      "sourceRef": "PDF S. 106–107"
+    },
+    {
+      "id": "bm-03", "topic": "beschwerde", "type": "categorize", "difficulty": 2,
+      "prompt": "Gehört der Schritt zum direkten oder zum indirekten Beschwerdemanagementprozess?",
+      "categories": ["Direkt (kundennah)", "Indirekt (intern)"],
+      "items": [
+        { "text": "Beschwerdestimulierung", "category": 0 },
+        { "text": "Beschwerdeannahme", "category": 0 },
+        { "text": "Beschwerdebearbeitung", "category": 0 },
+        { "text": "Beschwerdereaktion", "category": 0 },
+        { "text": "Beschwerdeauswertung", "category": 1 },
+        { "text": "Beschwerdemanagement-Controlling", "category": 1 },
+        { "text": "Beschwerdereporting", "category": 1 },
+        { "text": "Beschwerdeinformationsnutzung", "category": 1 }
+      ],
+      "explanation": "Direkt = alles, was im Kontakt mit dem Kunden passiert. Indirekt = was intern passiert: auswerten, kontrollieren, berichten und die Infos für Verbesserungen nutzen.",
+      "sourceRef": "PDF S. 106"
+    },
+    {
+      "id": "bm-04", "topic": "beschwerde", "type": "categorize", "difficulty": 2,
+      "prompt": "Reaktives oder aktives Beschwerdemanagement?",
+      "categories": ["Reaktiv", "Aktiv"],
+      "items": [
+        { "text": "Das Unternehmen wartet ab, bis Beschwerden eingehen, und reagiert dann", "category": 0 },
+        { "text": "Es gibt eine Hotline, die Kunden bei Problemen anrufen können", "category": 0 },
+        { "text": "Nach jeder Zustellung wird aktiv nach der Zufriedenheit gefragt", "category": 1 },
+        { "text": "Versteckte Unzufriedenheit wird erkannt und angesprochen, bevor sich der Kunde beschwert", "category": 1 }
+      ],
+      "explanation": "Reaktiv: Beschwerdewege öffnen und reagieren. Aktiv: Beschwerden gezielt anregen und latente Unzufriedenheit selbst aufspüren. Voraussetzung: Kunden- und Serviceorientierung und eine positive Fehlerkultur.",
+      "sourceRef": "PDF S. 106"
+    },
+    {
+      "id": "bm-05", "topic": "beschwerde", "type": "single", "difficulty": 2,
+      "prompt": "Warum sollte ein Unternehmen Beschwerden sogar aktiv anregen (Beschwerdestimulierung)?",
+      "options": [
+        "Weil sich nur ein Bruchteil der unzufriedenen Kunden beschwert – die anderen wandern still ab",
+        "Weil mehr Beschwerden automatisch mehr Umsatz bedeuten",
+        "Weil Beschwerden gesetzlich gezählt werden müssen",
+        "Damit die Mitarbeitenden mehr zu tun haben"
+      ],
+      "answer": 0,
+      "explanation": "Wer sich nicht beschwert, ist nicht automatisch zufrieden. Leicht nutzbare, bekannte Beschwerdekanäle holen die stillen Unzufriedenen ab.",
+      "sourceRef": "PDF S. 107"
+    },
+    {
+      "id": "bm-06", "topic": "beschwerde", "type": "categorize", "difficulty": 2,
+      "prompt": "Welche Art der Kompensation wird angeboten?",
+      "categories": ["Finanziell", "Materiell", "Immateriell"],
+      "items": [
+        { "text": "Gutschrift auf die nächste Rechnung", "category": 0 },
+        { "text": "Erstattung des Warenwerts", "category": 0 },
+        { "text": "Kostenlose erneute Zustellung bzw. Ersatzlieferung", "category": 1 },
+        { "text": "Reparatur der beschädigten Ware", "category": 1 },
+        { "text": "Persönliche Entschuldigung der Niederlassungsleitung", "category": 2 },
+        { "text": "Transparente Information über Ursache und Gegenmaßnahmen", "category": 2 }
+      ],
+      "explanation": "Finanziell = Geld (Nachlass, Schadensersatz). Materiell = Ersatz oder Reparatur. Immateriell = Entschuldigung, Information. Welche Lösung fair ist, wird im Einzelfall entschieden.",
+      "sourceRef": "PDF S. 107"
+    },
+    {
+      "id": "bm-07", "topic": "beschwerde", "type": "single", "difficulty": 2,
+      "prompt": "Was ist das übergeordnete Ziel des Beschwerdemanagements?",
+      "options": [
+        "Gewinn und Wettbewerbsfähigkeit steigern, indem Kundenabwanderung verhindert und Hinweise auf Schwächen genutzt werden",
+        "Möglichst wenige Beschwerden zu erhalten, egal wie",
+        "Jede Beschwerde schnell abzuschließen, auch ohne Lösung",
+        "Schadensersatzansprüche grundsätzlich abzuwehren"
+      ],
+      "answer": 0,
+      "explanation": "Zwei Effekte: unzufriedene Kunden halten (und im besten Fall zu positiven Multiplikatoren machen) und aus Beschwerden lernen.",
+      "sourceRef": "PDF S. 107–108"
+    },
+    {
+      "id": "bm-08", "topic": "beschwerde", "type": "single", "difficulty": 1,
+      "prompt": "Beschwerden können eine Quelle für „Kai-Zen“ sein. Was bedeutet das?",
+      "options": ["Kontinuierliche Verbesserung", "Sofortige Kündigung", "Kostenlose Ersatzlieferung", "Zertifizierung nach DIN EN ISO 9001"],
+      "answer": 0,
+      "explanation": "Kritische Kunden sprechen aus, was viele andere nur denken. Wer die Hinweise nutzt, verbessert sich Schritt für Schritt.",
+      "sourceRef": "PDF S. 108"
+    },
+    {
+      "id": "bm-09", "topic": "beschwerde", "type": "truefalse", "difficulty": 2,
+      "prompt": "Auf unberechtigte Beschwerden sollte man immer kulant nachgeben, damit der Kunde zufrieden bleibt.",
+      "answer": false,
+      "explanation": "Falsch. Auch auf „falsche“ Beschwerden wird konsequent, aber sachlich reagiert – und es werden Grenzen aufgezeigt. Kulanz ja, Selbstaufgabe nein.",
+      "sourceRef": "PDF S. 107"
+    },
+    {
+      "id": "bm-10", "topic": "beschwerde", "type": "single", "difficulty": 3,
+      "context": {
+        "text": "Unter dem Neujahrspost einer Spedition auf Facebook beschweren sich mehrere Kunden öffentlich: Man erreiche im Kundencenter niemanden und hänge ständig in der Warteschleife. Die Firma antwortet nur mit der Nummer der Hotline."
+      },
+      "prompt": "Wie hätte eine professionelle Reaktion ausgesehen?",
+      "options": [
+        "Zeitnah öffentlich Verständnis zeigen, einen direkten Kontaktweg ohne Warteschleife anbieten (z. B. Rückruf per Direktnachricht) und intern die Ursache der schlechten Erreichbarkeit angehen",
+        "Die Kommentare löschen, damit andere sie nicht sehen",
+        "Gar nicht reagieren – Social Media ist nicht der richtige Kanal",
+        "Den Kunden öffentlich erklären, dass sie zu ungeduldig sind"
+      ],
+      "answer": 0,
+      "explanation": "Die Hotline-Nummer war ja genau das Problem. Öffentliche Beschwerden wirken als negative Multiplikatoren – eine schnelle, empathische Reaktion plus echte Lösung kann daraus sogar Pluspunkte machen.",
+      "sourceRef": "PDF S. 128–129"
+    },
+    {
+      "id": "bm-11", "topic": "beschwerde", "type": "open", "difficulty": 3,
+      "prompt": "Erstellen Sie einen kurzen Leitfaden (mindestens fünf Schritte) für ein telefonisches Reklamationsgespräch, z. B. wegen einer verspäteten Zustellung.",
+      "modelAnswer": "1. Freundlich begrüßen, Namen nennen, ruhig bleiben. 2. Aktiv zuhören, den Kunden ausreden lassen, nicht rechtfertigen. 3. Verständnis zeigen und sich für die Unannehmlichkeiten entschuldigen. 4. Sachverhalt vollständig und strukturiert aufnehmen (Sendungsnummer, Problem, Schaden, Erwartung des Kunden). 5. Lösung anbieten bzw. den nächsten Schritt verbindlich zusagen (z. B. Rückruf bis 14 Uhr), ggf. Kompensation. 6. Zusammenfassen, Zustimmung einholen, freundlich verabschieden. 7. Intern dokumentieren, Termin überwachen, Ursache weitergeben. Dabei auf den Kundentyp eingehen.",
+      "rubric": [
+        { "criterion": "Mindestens fünf sinnvolle Schritte in logischer Reihenfolge", "points": 2 },
+        { "criterion": "Zuhören, Verständnis bzw. Entschuldigung enthalten", "points": 1 },
+        { "criterion": "Vollständige Aufnahme des Problems", "points": 1 },
+        { "criterion": "Konkrete Lösung bzw. verbindliche Zusage", "points": 1 },
+        { "criterion": "Dokumentation bzw. Nachverfolgung", "points": 1 }
+      ],
+      "keywords": ["zuhören", "Verständnis", "entschuldig", "aufnehmen", "Lösung", "Rückruf", "dokumentier"],
+      "explanation": "Ein Leitfaden ist eine Schrittfolge – nummeriere die Schritte, das gibt Struktur und Punkte.",
+      "sourceRef": "PDF S. 107, 134–135"
+    },
+
+    {
+      "id": "kt-01", "topic": "kundentypen", "type": "categorize", "difficulty": 2,
+      "prompt": "Woran erkennst du den Kundentyp? (4-Farben-Modell)",
+      "categories": ["Blau – rationaler Denker", "Grün – Zögerer", "Gelb – Kreativer", "Rot – dominanter Macher"],
+      "items": [
+        { "text": "Will alle Fakten und Details, wägt Vor- und Nachteile lange ab", "category": 0 },
+        { "text": "Stellt viele Nachfragen, entscheidet nicht schnell", "category": 0 },
+        { "text": "Risikoscheu, bleibt lieber beim Bewährten", "category": 1 },
+        { "text": "Freundlich und zurückhaltend, steht Neuem kritisch gegenüber", "category": 1 },
+        { "text": "Schnell begeistert, aber auch schnell abgelenkt", "category": 2 },
+        { "text": "Redet gern über Privates, die Beziehung ist ihm wichtig", "category": 2 },
+        { "text": "Kontrollierend, provoziert bewusst", "category": 3 },
+        { "text": "Will klare Ergebnisse, keine persönliche Ebene", "category": 3 }
+      ],
+      "explanation": "Blau = Kopf, Grün = Sicherheit, Gelb = Begeisterung, Rot = Kontrolle.",
+      "sourceRef": "PDF S. 109–111"
+    },
+    {
+      "id": "kt-02", "topic": "kundentypen", "type": "categorize", "difficulty": 2,
+      "prompt": "Welcher Umgang passt zu welchem Kundentyp?",
+      "categories": ["Blau – rationaler Denker", "Grün – Zögerer", "Gelb – Kreativer", "Rot – dominanter Macher"],
+      "items": [
+        { "text": "Ausführliche Infos, Zeit zum Durchdenken geben – dann aktiv auf eine Entscheidung hinwirken", "category": 0 },
+        { "text": "Aufmerksam zuhören, Risiken ausräumen, Mitentscheider einbinden, mehr Zeit einplanen", "category": 1 },
+        { "text": "Leistung vorführen und präsentieren, die Begeisterung am Leben halten", "category": 2 },
+        { "text": "Selbstbewusst, kurz und präzise argumentieren – ihn sich ruhig etwas überlegen fühlen lassen", "category": 3 }
+      ],
+      "explanation": "Jeder Typ braucht einen anderen Hebel: Fakten (Blau), Sicherheit (Grün), Erlebnis (Gelb), Ergebnis (Rot).",
+      "sourceRef": "PDF S. 109–111"
+    },
+    {
+      "id": "kt-03", "topic": "kundentypen", "type": "single", "difficulty": 2,
+      "context": {
+        "text": "Ein Kunde ruft an, unterbricht dich ständig, verzichtet auf jede Höflichkeitsfloskel und will sofort wissen, was du konkret für ihn tun kannst."
+      },
+      "prompt": "Welcher Typ ist das – und wie reagierst du?",
+      "options": [
+        "Roter Typ – entschlossen auftreten, die Lösung kurz und präzise nennen",
+        "Grüner Typ – viel Zeit für Small Talk einplanen",
+        "Gelber Typ – ausführlich über Privates sprechen",
+        "Blauer Typ – ihm eine 40-seitige Detailanalyse schicken"
+      ],
+      "answer": 0,
+      "explanation": "Dominant, ungeduldig, ergebnisorientiert = Rot. Keine übertriebene Freundlichkeit, klare Argumente, klare Antwort.",
+      "sourceRef": "PDF S. 111"
+    },
+    {
+      "id": "kt-04", "topic": "kundentypen", "type": "single", "difficulty": 2,
+      "prompt": "Was ist beim gelben Kundentyp die größte Gefahr im Verkauf?",
+      "options": [
+        "Die anfängliche Euphorie verfliegt und am Ende wird doch nicht gekauft",
+        "Er entscheidet sich zu schnell und bereut es",
+        "Er verlangt zu viele Detailinformationen",
+        "Er provoziert bewusst und wird laut"
+      ],
+      "answer": 0,
+      "explanation": "Gelbe Kunden sind schnell begeistert, aber auch schnell abgelenkt. Gute Beziehung nutzen, um die Begeisterung bis zum Abschluss zu halten.",
+      "sourceRef": "PDF S. 110"
+    },
+    {
+      "id": "kt-05", "topic": "kundentypen", "type": "single", "difficulty": 2,
+      "prompt": "Was ist mit „Farbwechslern“ gemeint?",
+      "options": [
+        "Unter Stress kann ein Kunde in den gegenteiligen Typ umschlagen – deshalb in jeder Situation neu einschätzen",
+        "Kunden, die ihren Dienstleister häufig wechseln",
+        "Kunden, die zu zwei Typen gleichzeitig gehören",
+        "Mitarbeitende, die zwischen Abteilungen wechseln"
+      ],
+      "answer": 0,
+      "explanation": "Laut Modell kann z. B. aus Blau Gelb oder aus Grün Rot werden (und umgekehrt). Einmal einsortieren reicht also nicht.",
+      "sourceRef": "PDF S. 111"
+    },
+    {
+      "id": "kt-06", "topic": "kundentypen", "type": "truefalse", "difficulty": 1,
+      "prompt": "Beim blauen Kundentyp steht die persönliche Beziehung zum Verkäufer über den Fakten.",
+      "answer": false,
+      "explanation": "Falsch – genau umgekehrt. Beim Blauen zählen Fakten. Die Beziehungsebene ist vor allem beim gelben Typ wichtig.",
+      "sourceRef": "PDF S. 109–110"
+    }
+  ]
+}

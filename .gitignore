@@ -1,0 +1,4 @@
+node_modules/
+# Build-Ergebnis: entsteht mit `npm run build`, wird nicht eingecheckt.
+dist/
+.DS_Store
