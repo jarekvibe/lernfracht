@@ -10,10 +10,12 @@ import { finishSession, mistakeCount, recordAnswer } from '../../engine/progress
 import { xpForAnswer } from '../../engine/xp.js';
 import { createRng, hashString } from '../../engine/random.js';
 import { buildMistakeSession, buildSession } from '../../engine/session.js';
+import { canDoGids } from '../../engine/cando.js';
 
 /**
  * Lektion · Thema üben · Fehler üben.
  * `#/lesson?unit=lf14-2` · `#/lesson?mode=topic&unit=lf14-2&topic=abc` · `#/lesson?mode=mistakes`
+ * · `#/lesson?mode=cando&unit=lf14-2&cando=abc.c1` (Kann-Liste-Zeile)
  * Jede Erstantwort wird sofort gespeichert – wer abbricht, verliert nichts.
  * ASSUMPTION: Eine abgebrochene Lektion zählt nicht als abgeschlossen (kein Eintrag in `days`).
  * @param {import('../app.js').ScreenContext} ctx
@@ -26,11 +28,11 @@ export function render(ctx) {
   if (!scope) {
     return [
       h('header', { class: 'lesson-top' }, back),
-      h('h1', { class: 'visually-hidden', tabindex: '-1' }, 'Thema nicht gefunden'),
+      h('h1', { class: 'visually-hidden', tabindex: '-1' }, 'Nicht gefunden'),
       emptyState({
         icon: '🔍',
-        title: 'Thema nicht gefunden',
-        text: 'Dieses Thema gibt es in dieser Version nicht.',
+        title: 'Nicht gefunden',
+        text: 'Dieses Thema bzw. diese Kann-Liste-Zeile gibt es in dieser Version nicht.',
         action: h('a', { class: 'btn btn-secondary', href: '#/home' }, 'Zum Lernpfad'),
       }),
     ];
@@ -165,6 +167,7 @@ export function render(ctx) {
       ...summary,
       unitId: scope.unitId,
       topicId: scope.topicId,
+      canDoId: scope.canDoId ?? null,
       title: scope.title,
       xp: xpEarned + done.bonusXp,
       streakBefore: done.streakBefore,
@@ -190,7 +193,7 @@ export function render(ctx) {
  * @param {import('../app.js').ScreenContext['catalog']} catalog
  * @param {Record<string, string>} query
  * @returns {{mode: import('../../engine/lesson.js').LessonMode, title: string, unitId: string|null, topicId: string|null,
- *   questions: ReturnType<typeof catalog.getPathQuestions>}|null}
+ *   canDoId?: string, questions: ReturnType<typeof catalog.getPathQuestions>}|null}
  */
 function resolveScope(catalog, query) {
   if (query.mode === 'mistakes') {
@@ -204,6 +207,19 @@ function resolveScope(catalog, query) {
   }
   const unit = (query.unit && catalog.getUnit(query.unit)) || catalog.units[0];
   if (!unit) return null;
+  if (query.mode === 'cando') {
+    const entry = unit.topics.flatMap((t) => t.canDo ?? []).find((c) => c.id === query.cando);
+    if (!entry) return null;
+    const linked = new Set(canDoGids(unit.id, entry));
+    return {
+      mode: 'cando',
+      title: `Kann-Liste üben: ${entry.text}`,
+      unitId: unit.id,
+      topicId: null,
+      canDoId: entry.id,
+      questions: catalog.getPathQuestions(unit.id).filter((q) => linked.has(q.gid)),
+    };
+  }
   if (query.mode === 'topic') {
     const topic = unit.topics.find((t) => t.id === query.topic);
     if (!topic) return null;

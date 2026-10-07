@@ -36,7 +36,7 @@ export const BADGES = Object.freeze([
   // ASSUMPTION: „Thema gemeistert“ = Ampel grün (≥ 80 % in Box 4+), nicht 100 %.
   { id: 'topic_mastered', icon: '🎯', title: 'Thema gemeistert', description: 'Ein Thema ist klausurbereit.', earned: (c) => c.greenTopics >= 1 },
   { id: 'first_exam', icon: '📝', title: 'Erste Klausur-Simulation', description: 'Einmal unter Prüfungsbedingungen.', earned: (c) => c.exams >= 1 },
-  { id: 'exam_grade_2', icon: '🏅', title: 'Klausur mit Note 2', description: 'Note 2 oder besser in der Simulation.', earned: (c) => c.bestGrade !== null && c.bestGrade <= 2 },
+  { id: 'exam_grade_2', icon: '🏅', title: 'Note 2 oder besser', description: 'In der Klausur-Simulation.', earned: (c) => c.bestGrade !== null && c.bestGrade <= 2 },
   {
     id: 'mistakes_cleared',
     icon: '🧹',

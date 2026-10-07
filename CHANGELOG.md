@@ -1,5 +1,50 @@
 # Changelog
 
+## M5 – Klausur-Simulation & Kann-Liste · 2026-10-07
+
+### Neu
+- **Ziehung** (`engine/exam.js`): Fragen je Thema proportional zu `topicWeights` (Hamilton-Verfahren),
+  zufällig, jede höchstens einmal, höchstens `maxOpenQuestions` Freitexte. Fehlen einem Thema
+  Fragen, füllen die Themen mit dem höchsten Gewicht auf.
+- **Durchlauf** (`#/exam/run`):
+  - kein Feedback, Blättern vor/zurück (auch ← →), Fragen markieren
+  - Übersichtsleiste mit Beantwortet- und Markiert-Status
+  - sichtbarer Timer, Warnung bei 5 Minuten, Auto-Abgabe bei 0:00
+  - Abgeben mit Rückfrage bei offenen oder markierten Fragen, Abbrechen mit Rückfrage
+- **Nach der Abgabe:** Selbstbewertung der Freitexte (Musterlösung, Rubrik, Schlüsselbegriffe),
+  dann das Ergebnis:
+  - Note, Punkte, Prozent, Dauer, XP
+  - Auswertung je Thema mit Balken
+  - Fehlerliste zum Aufklappen mit Lösung und Erklärung
+- **Notenschlüssel:** IHK als Default (92/81/67/50/30 %). Eine Schule mit eigenem Schlüssel trägt
+  ihn optional als `exam.gradeScale` in den Content ein; der Validator prüft ihn.
+- **Buchung** (`engine/progress.js → finishExam`):
+  - Falsche und unbeantwortete Fragen kommen in die Fehlerkiste (Box 1), richtige rücken eine Box
+    höher.
+  - Der Versuch landet mit Datum, Note und Dauer im Verlauf.
+  - XP = round(Prozent / 2) + 10 ab 50 %. Die Klausur zählt für den Streak.
+  - Abzeichen „Erste Klausur-Simulation“ und „Note 2 oder besser“.
+- **Verlauf** aller Versuche in der Klausur-Übersicht und im Profil.
+- **Kann-Liste** (`#/cando/lf14-2`):
+  - alle 27 „Ich kann …“-Sätze mit automatischer Mastery der verknüpften Fragen
+  - Selbsteinschätzung in 4 Stufen, gespeichert in `selfAssessment`
+  - Hinweis bei großem Abstand („Du fühlst dich sicher, aber 3 von 3 Fragen sitzen noch nicht.“)
+  - „Jetzt üben“ startet eine Lektion nur aus den verknüpften Fragen.
+- **Tests:** 149 Unit-Tests. Neu: Ziehung (Gewichte, max. Freitext, keine Duplikate,
+  Nachfüllen), Scoring inklusive Teilpunkten und unbeantworteter Fragen, alle Notengrenzen,
+  eigener Notenschlüssel, Klausur-XP, Buchung, Kann-Liste-Abgleich.
+
+### Annahmen (`// ASSUMPTION:` im Code)
+- Die Fragen stehen nach Themen sortiert, innerhalb eines Themas zufällig.
+- Eine laufende Simulation wird nicht gespeichert. Neu laden oder Verlassen bricht sie ab.
+- Unbeantwortet heißt 0 Punkte und Fehlerkiste. Eine Reihenfolge-Frage zählt erst nach dem
+  Sortieren als beantwortet, eine ungültige Zahl als unbeantwortet.
+- Richtige Klausur-Antworten bringen die Karte eine Box höher. Die Klausur zählt für den Streak,
+  aber nicht als Lektion.
+- Notengrenzen ohne Runden (80,99 % = 3).
+- Kann-Liste: Der Hinweis erscheint ab einem Abstand von 0,5 zwischen gefühlter Sicherheit
+  (1 / ⅔ / ⅓ / 0) und Mastery.
+
 ## M4 – Gamification · 2026-10-07
 
 ### Neu

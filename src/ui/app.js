@@ -8,6 +8,7 @@ import { icon } from './components/icon.js';
 import * as cando from './screens/cando.js';
 import * as debug from './screens/debug.js';
 import * as exam from './screens/exam.js';
+import * as examRun from './screens/examRun.js';
 import * as home from './screens/home.js';
 import * as league from './screens/league.js';
 import * as lesson from './screens/lesson.js';
@@ -51,6 +52,7 @@ export const ROUTES = [
   { path: '/cando/:unitId', title: 'Kann-Liste', render: cando.render, tab: 'learn' },
   { path: '/mistakes', title: 'Fehlerkiste', render: mistakes.render, tab: 'mistakes' },
   { path: '/exam', title: 'Klausur', render: exam.render, tab: 'exam' },
+  { path: '/exam/run', title: 'Klausur-Simulation', render: examRun.render },
   { path: '/league', title: 'Liga', render: league.render, tab: 'league' },
   { path: '/profile', title: 'Profil', render: profile.render, tab: 'profile' },
   { path: '/settings', title: 'Einstellungen', render: settings.render, tab: 'profile' },

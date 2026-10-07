@@ -6,10 +6,10 @@ import { focusedKey, restoreFocus } from './focus.js';
  * order – sort with ↑/↓ buttons. The answer is always complete.
  * @param {import('./index.js').AnyQuestion} q
  * @param {import('../../../engine/present.js').Presentation} presentation
- * @param {import('./index.js').RendererDeps} _deps
+ * @param {import('./index.js').RendererDeps} deps
  * @returns {import('./index.js').Renderer}
  */
-export function orderRenderer(q, presentation, _deps) {
+export function orderRenderer(q, presentation, { onChange }) {
   const order = [.../** @type {number[]} */ (presentation.start)];
   /** @type {import('../../../engine/grading.js').Grade|null} */
   let grade = null;
@@ -25,6 +25,7 @@ export function orderRenderer(q, presentation, _deps) {
     const item = order[target];
     render(`${item}-${delta < 0 ? 'up' : 'down'}`, `${item}-${delta < 0 ? 'down' : 'up'}`);
     live.textContent = `„${q.items[item]}“ jetzt auf Platz ${target + 1}.`;
+    onChange();
   }
 
   /** @param {string} [focusKey] @param {string} [fallbackKey] */

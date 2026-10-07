@@ -18,7 +18,7 @@ const UNIT_KEYS = new Set([
   'schemaVersion', 'id', 'lernfeld', 'title', 'description', 'reviewStatus', 'source', 'exam', 'topics', 'questions',
 ]);
 const TOPIC_KEYS = new Set(['id', 'title', 'order', 'icon', 'canDo']);
-const EXAM_KEYS = new Set(['title', 'questionCount', 'durationMinutes', 'maxOpenQuestions', 'topicWeights']);
+const EXAM_KEYS = new Set(['title', 'questionCount', 'durationMinutes', 'maxOpenQuestions', 'topicWeights', 'gradeScale']);
 const COMMON_QUESTION_KEYS = [
   'id', 'topic', 'type', 'difficulty', 'prompt', 'context', 'explanation', 'sourceRef', 'supplemented', 'note', 'examPoints',
 ];
@@ -316,12 +316,38 @@ export function validateUnit(unit) {
       }
       if (total <= 0) err('exam.topicWeights', 'Summe der Gewichte muss > 0 sein');
     }
+    if (exam.gradeScale !== undefined) validateGradeScale(exam.gradeScale, err);
     for (const key of Object.keys(exam)) {
       if (!EXAM_KEYS.has(key)) warn('exam', `unbekanntes Feld „${key}“`);
     }
   }
 
   return { errors, warnings };
+}
+
+/**
+ * Optional own grading key of a school: steps from best to worst, the last one starting at 0 %.
+ * @param {unknown} scale
+ * @param {(where: string, msg: string) => void} err
+ */
+function validateGradeScale(scale, err) {
+  const where = 'exam.gradeScale';
+  if (!Array.isArray(scale) || scale.length < 2) {
+    err(where, 'braucht mindestens zwei Stufen');
+    return;
+  }
+  let previous = Infinity;
+  scale.forEach((step, i) => {
+    if (!isObject(step) || typeof step.minPercent !== 'number' || !isInt(step.grade) || !isText(step.label)) {
+      err(where, `Stufe ${i + 1} braucht minPercent, grade und label`);
+      return;
+    }
+    if (!(step.minPercent < previous)) err(where, 'minPercent muss von oben nach unten fallen');
+    if (step.minPercent < 0 || step.minPercent > 100) err(where, 'minPercent muss zwischen 0 und 100 liegen');
+    previous = step.minPercent;
+  });
+  const last = scale[scale.length - 1];
+  if (isObject(last) && last.minPercent !== 0) err(where, 'die letzte Stufe muss bei 0 % beginnen');
 }
 
 /**

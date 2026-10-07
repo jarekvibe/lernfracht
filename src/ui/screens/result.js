@@ -35,6 +35,9 @@ export function render({ catalog, store }) {
   /** @type {{href: string, label: string}} */
   let primary;
   if (result.mode === 'topic' && result.unitId) primary = { href: topicHref(result.unitId, result.topicId), label: 'Thema weiter üben' };
+  else if (result.mode === 'cando' && result.unitId && result.canDoId) {
+    primary = { href: `#/cando/${encodeURIComponent(result.unitId)}`, label: 'Zurück zur Kann-Liste' };
+  }
   else if (result.mode === 'mistakes' && inMistakeBox > 0) primary = { href: '#/lesson?mode=mistakes', label: 'Weiter Fehler üben' };
   else primary = { href: `#/lesson?unit=${encodeURIComponent(result.unitId ?? catalog.units[0].id)}`, label: 'Nächste Lektion' };
 

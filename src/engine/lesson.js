@@ -3,7 +3,7 @@
 // ASSUMPTION: Die Wiederholung am Ende ändert die Leitner-Karte nicht – nur der erste Versuch zählt.
 
 /**
- * @typedef {'path'|'topic'|'mistakes'} LessonMode
+ * @typedef {'path'|'topic'|'cando'|'mistakes'} LessonMode
  *
  * @typedef {Object} LessonItem
  * @property {string} gid
