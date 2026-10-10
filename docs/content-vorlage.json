@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "lf99-1",
+  "lernfeld": { "id": "LF99", "title": "Name des Lernfelds" },
+  "title": "LF99.1 – Titel der Einheit",
+  "description": "Ein Satz, worum es in dieser Einheit geht.",
+  "reviewStatus": "draft",
+  "source": { "type": "Unterrichtsskript", "note": "Seitenzahlen beziehen sich auf das Skript der Lehrkraft. Das Skript selbst kommt nicht in die App." },
+  "exam": {
+    "title": "Klausur-Simulation LF99.1",
+    "questionCount": 3,
+    "durationMinutes": 10,
+    "maxOpenQuestions": 1,
+    "topicWeights": { "grundlagen": 1 }
+  },
+  "topics": [
+    {
+      "id": "grundlagen",
+      "title": "Grundlagen",
+      "order": 1,
+      "icon": "📦",
+      "canDo": [
+        { "id": "grundlagen.c1", "text": "Ich kann die Aufgaben einer Spedition nennen.", "questionIds": ["grundlagen-01", "grundlagen-02"] },
+        { "id": "grundlagen.c2", "text": "Ich kann ein Frachtgewicht berechnen.", "questionIds": ["grundlagen-03"] }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "grundlagen-01",
+      "topic": "grundlagen",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Was organisiert eine Spedition in erster Linie?",
+      "options": ["Die Güterbeförderung für ihre Kunden", "Die Herstellung von Verpackungen", "Den Verkauf von Lkw", "Die Wartung von Containern"],
+      "answer": 0,
+      "explanation": "Eine Spedition besorgt die Versendung von Gütern – sie plant und organisiert den Transport, fährt aber nicht zwingend selbst.",
+      "sourceRef": "Skript S. 1"
+    },
+    {
+      "id": "grundlagen-02",
+      "topic": "grundlagen",
+      "type": "truefalse",
+      "difficulty": 1,
+      "prompt": "Eine Spedition muss jeden Transport mit eigenen Fahrzeugen durchführen.",
+      "answer": false,
+      "explanation": "Speditionen beauftragen oft Frachtführer. Entscheidend ist die Organisation, nicht der eigene Fuhrpark.",
+      "sourceRef": "Skript S. 2"
+    },
+    {
+      "id": "grundlagen-03",
+      "topic": "grundlagen",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Eine Sendung besteht aus 4 Paletten zu je 180 kg. Wie schwer ist sie insgesamt?",
+      "answer": 720,
+      "tolerance": 0,
+      "unit": "kg",
+      "explanation": "4 × 180 kg = 720 kg.",
+      "sourceRef": "Skript S. 3"
+    }
+  ]
+}

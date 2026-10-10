@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { fillTemplate } from '../scripts/lib/build-html.mjs';
+import { fileURLToPath } from 'node:url';
+import { SIZE_BUDGET_BYTES, buildHtml, fillTemplate } from '../scripts/lib/build-html.mjs';
 import { jsonForHtml } from '../scripts/lib/content-files.mjs';
 import { resolveTheme } from '../src/ui/theme.js';
 
@@ -34,4 +35,12 @@ test('resolveTheme: dark default, light, system follows the device', () => {
   assert.equal(resolveTheme('system', true), 'light');
   assert.equal(resolveTheme('system', false), 'dark');
   assert.equal(resolveTheme(/** @type {any} */ ('pink'), true), 'dark');
+});
+
+test('real build: under the size budget, CSP present, nothing loaded from outside', async () => {
+  const { html } = await buildHtml(fileURLToPath(new URL('..', import.meta.url)));
+  assert.ok(Buffer.byteLength(html, 'utf8') < SIZE_BUDGET_BYTES, 'dist/lernfracht.html exceeds the budget');
+  assert.match(html, /<meta http-equiv="Content-Security-Policy" content="default-src 'none';/);
+  assert.doesNotMatch(html, /<(?:script|link|img|iframe)\b[^>]*\b(?:src|href)="(?:https?:)?\/\//i);
+  assert.doesNotMatch(html, /@import|url\((?:'|")?https?:/i);
 });

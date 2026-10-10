@@ -1,5 +1,67 @@
 # Changelog
 
+## M7 – Polish · 2026-10-07
+
+### Neu
+- **Barrierefreiheit:**
+  - Lighthouse (mobil) gibt auf allen 9 Hauptscreens 100 Punkte, in Hell und Dunkel. Performance
+    98–99, Best Practices 100.
+  - axe-core findet auf 23 Screen-Zuständen (auch leere Zustände, Dialoge, Klausur-Ergebnis,
+    Liga-Wochenergebnis) keine Verstöße.
+- **Kontrast im hellen Theme:** neue Schriftfarben `--accent-ink`, `--success-ink` und `--error-ink`.
+  Orange (#E85F00), Grün und Rot erreichten als Schrift auf Weiß nur 3,5 : 1. Flächen, Rahmen und
+  Balken bleiben in den SPEC-Farben.
+- **Gesperrte Abzeichen** sind gestrichelt statt halbtransparent – vorher war ihr Text zu blass.
+- **Kleinere ARIA-Korrekturen:**
+  - Die Schritt-Anzeige im Onboarding liest „Schritt 1 von 4“ vor.
+  - „Sicherung importieren“ ist ein echter Button.
+  - Das XP-Diagramm nennt Summe und besten Tag. Einzelwerte stehen in der Tabelle.
+- **Erster Screen ohne Einblenden:** Er steht sofort da, nur Wechsel blenden noch ein. Vorher sah
+  Chrome wegen der Animation ab `opacity: 0` gar keinen ersten Inhalt (Lighthouse: NO_FCP).
+- **Reduced Motion** schaltet jetzt auch Verzögerungen ab (z. B. die stapelnden Pakete) und
+  verhindert weiches Scrollen.
+- **Leere Zustände:**
+  - XP-Diagramm und Streak-Kalender erklären, was dort erscheinen wird.
+  - Ohne Spitznamen heißt die eigene Liga-Zeile „Du“ statt „Du (du)“.
+  - „Ohne Spitznamen · festlegen“ hat wieder den Abstand.
+- **Microcopy:** Im Profil heißt „Mastery je Thema“ jetzt „Was schon sitzt“, das ist der einzige
+  Anglizismus in der Oberfläche gewesen. Der Rest war im Durchgang stimmig: duzen, kurz,
+  typografische Anführungszeichen.
+- **Performance-Budget:**
+  - `npm run build` bricht über 400 KB ab (aktuell 204 KB).
+  - Ein Test prüft Budget, CSP und dass nichts von außen geladen wird.
+  - Gemessen mit 4-fach gedrosselter CPU: erster Screen nach 0,2 s, mit einem Jahr Lerndaten nach
+    0,3 s.
+- **Meta-Tags:**
+  - `noindex` steckt jetzt in der Datei selbst. Das gilt auch auf GitHub Pages oder Netlify Drop,
+    wo es keine Server-Header gibt.
+  - Fester Name „Lernfracht“ für den Home-Bildschirm.
+- **README** für Laien neu:
+  - Benutzen und Daten umziehen
+  - Schritt für Schritt selbst bauen, auch ohne Computer über die CI-Artefakte
+  - Online stellen: Netlify, Netlify Drop, GitHub Pages
+  - Neue Lerneinheit anlegen
+  - Fehlerhilfe
+
+  Dazu `docs/content-vorlage.json` als gültige Vorlage. Ein Test hält sie gültig.
+- **Tests:** 167 Unit-Tests.
+
+### Annahmen (`// ASSUMPTION:` im Code)
+- Das helle `--muted` ist leicht abgedunkelt (#636368 statt #6B6B70). Auf getönten Flächen (Auswahl,
+  Feedback) lag es sonst knapp unter 4,5 : 1.
+- Die Säulen im XP-Diagramm sind keine eigenen Tab-Stopps mehr. Tastatur und Screenreader bekommen
+  die Werte über die Tabelle.
+
+### Manuell testen
+1. Hell und Dunkel umschalten und Lernpfad, Lektion mit Feedback, Profil und Einstellungen ansehen:
+   Ist alles gut lesbar?
+2. iPhone: Einstellungen → Bedienungshilfen → Bewegung → „Bewegung reduzieren“ an. Lektion
+   abschließen: Die Pakete stehen sofort, nichts gleitet.
+3. VoiceOver: Onboarding („Schritt 1 von 4“), Profil-Diagramm (Summe wird vorgelesen),
+   Einstellungen → „Sicherung importieren“.
+4. README von jemandem ohne Programmiererfahrung lesen lassen und
+   `docs/content-vorlage.json` → `content/` → `npm run validate` ausprobieren.
+
 ## M6 – Erinnerungen, Profil & Einstellungen · 2026-10-07
 
 ### Neu

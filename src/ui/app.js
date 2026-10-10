@@ -141,7 +141,7 @@ export function createApp({ root, store, catalog, version, ai, now, replaceState
         }),
       ];
     }
-    main.replaceChildren(h('div', { class: 'screen' }, view));
+    main.replaceChildren(h('div', { class: firstRender ? 'screen' : 'screen is-entering' }, view));
 
     const hasTabs = route.tab !== undefined;
     nav.el.hidden = !hasTabs;

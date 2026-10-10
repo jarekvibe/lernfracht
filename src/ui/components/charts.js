@@ -66,6 +66,9 @@ function tooltip(wrap) {
  * @returns {HTMLElement}
  */
 export function xpChart(series, goal, today) {
+  if (series.every((d) => d.xp === 0)) {
+    return h('p', { class: 'chart-empty muted small' }, `Noch keine XP in den letzten ${series.length} Tagen. Deine erste Lektion füllt das hier.`);
+  }
   const W = 340;
   const H = 170;
   const top = 22;
@@ -78,7 +81,13 @@ export function xpChart(series, goal, today) {
   const y = (/** @type {number} */ v) => top + plotH - (v / yMax) * plotH;
   const best = series.reduce((a, b) => (b.xp > a.xp ? b : a), series[0]);
 
-  const root = svg('svg', { viewBox: `0 0 ${W} ${H}`, class: 'chart', role: 'img', 'aria-label': `XP der letzten ${series.length} Tage, Tagesziel ${goal} XP` });
+  const total = series.reduce((sum, d) => sum + d.xp, 0);
+  const root = svg('svg', {
+    viewBox: `0 0 ${W} ${H}`,
+    class: 'chart',
+    role: 'img',
+    'aria-label': `XP der letzten ${series.length} Tage: zusammen ${total} XP, bester Tag ${best.xp} XP, Tagesziel ${goal} XP. Einzelwerte in der Tabelle.`,
+  });
   // Grundlinie und Ziellinie: Haarlinien, zurückhaltend
   root.append(svg('line', { x1: 0, x2: W, y1: top + plotH, y2: top + plotH, class: 'chart-axis' }));
   root.append(svg('line', { x1: 0, x2: W, y1: y(goal), y2: y(goal), class: 'chart-goal' }));
@@ -114,8 +123,10 @@ export function xpChart(series, goal, today) {
     day.textContent = d.date === today ? 'heute' : weekday(d.date);
     root.append(day);
 
-    // Trefferfläche: die ganze Spalte, per Tastatur erreichbar
-    const hit = svg('rect', { x: slot * i, y: 0, width: slot, height: H, class: 'chart-hit', tabindex: 0, 'aria-label': `${weekday(d.date)} ${shortDate(d.date)}: ${d.xp} XP` });
+    // Trefferfläche: die ganze Spalte. Nur für Maus und Finger.
+    // ASSUMPTION: Tastatur und Screenreader bekommen die Werte über die Tabelle darunter statt über
+    // 14 einzelne Tab-Stopps im Diagramm.
+    const hit = svg('rect', { x: slot * i, y: 0, width: slot, height: H, class: 'chart-hit' });
     const show = () => {
       bars[i]?.classList.add('is-hover');
       const yTop = d.xp > 0 ? y(d.xp) : top + plotH;
@@ -127,8 +138,6 @@ export function xpChart(series, goal, today) {
     };
     hit.addEventListener('pointerenter', show);
     hit.addEventListener('pointerleave', hide);
-    hit.addEventListener('focus', show);
-    hit.addEventListener('blur', hide);
     root.append(hit);
   });
 
@@ -205,7 +214,7 @@ export function streakCalendar(weeks, goal) {
   return h(
     'figure',
     { class: 'chart-figure' },
-    h('p', { class: 'visually-hidden' }, `In den letzten 12 Wochen an ${active} von ${days} Tagen gelernt.`),
+    h('p', { class: active === 0 ? 'muted small heat-empty' : 'visually-hidden' }, active === 0 ? 'Noch kein Lerntag. Jeder Tag mit einer Lektion färbt hier ein Feld.' : `In den letzten 12 Wochen an ${active} von ${days} Tagen gelernt.`),
     wrap,
     h(
       'figcaption',

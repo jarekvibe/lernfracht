@@ -119,7 +119,12 @@ export function render({ store, catalog, navigate, now, version }) {
       h(
         'div',
         { class: 'onboarding-top' },
-        h('div', { class: 'steps', 'aria-label': `Schritt ${step + 1} von ${steps.length}` }, steps.map((_, i) => h('span', { class: `step-dot${i <= step ? ' is-done' : ''}` }))),
+        h(
+          'div',
+          { class: 'steps' },
+          h('span', { class: 'visually-hidden' }, `Schritt ${step + 1} von ${steps.length}`),
+          steps.map((_, i) => h('span', { class: `step-dot${i <= step ? ' is-done' : ''}`, 'aria-hidden': 'true' })),
+        ),
         h('button', { type: 'button', class: 'text-button', onClick: () => finish() }, 'Überspringen'),
       ),
       h('h1', { tabindex: '-1' }, current.title),
